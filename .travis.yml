@@ -2,4 +2,4 @@ language: ruby
 rvm:
   - 2.2.0
 script:
-  - bundle exec rake cucumber:ok
+  - mkdir log && bundle exec rake cucumber:ok

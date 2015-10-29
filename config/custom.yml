@@ -1,0 +1,3 @@
+maximized_window: true
+driver: selenium
+debug_mode: true

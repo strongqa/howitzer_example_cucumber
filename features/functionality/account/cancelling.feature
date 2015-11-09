@@ -1,4 +1,3 @@
-
 Feature: Account Cancelling
   As a user 
   I do not want to login the system

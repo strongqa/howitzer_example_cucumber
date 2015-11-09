@@ -2,12 +2,14 @@ Feature: Sign Up
   As a user 
   I want to sign up to the system
   So I can login with a new account
-  
+
+  @smoke
   Scenario: user can open sign up page via menu
     Given home page of web application
     When I click sign up menu item on home page
     Then I should be redirected to sign up page
 
+  @smoke
   Scenario: visitor can initiate sign up
     Given login page of web application
     When I click sign up menu item on login page
@@ -33,6 +35,7 @@ Feature: Sign Up
     Then I should be logged in the system
     And I should be redirected to home page
 
+  @p1
   Scenario: user can not sign up with blank data
     Given sign up page of web application
     When I fill form on sign up page with blank data
@@ -43,6 +46,7 @@ Feature: Sign Up
     2 errors prohibited this user from being saved: Email can't be blank Password can't be blank
     """
 
+  @p1
   Scenario: user can not sign up with incorrect data
     Given sign up page of web application
     When I fill form on sign up page with not email data

@@ -1,4 +1,3 @@
-@bvt
 Feature: Blank page
 
   Scenario: Testing General Blank Page

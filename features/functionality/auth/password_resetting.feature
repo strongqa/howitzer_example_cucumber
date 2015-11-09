@@ -1,10 +1,8 @@
-@ok
 Feature: Password Resetting
   As a user
   I want to reset my password
   So I can login the system with new password
 
-  @bvt
   Scenario: user can reset password with correct data
     Given there is registered user
     And login page of web application
@@ -50,6 +48,7 @@ Feature: Password Resetting
     """
     Password is too short (minimum is 8 characters)
     """
+
   @p1
   Scenario: user can not reset password with incorrect email
     Given login page of web application
@@ -64,7 +63,6 @@ Feature: Password Resetting
     And I submit form on forgot password page
     Then forgot password page should be displayed
 
-  @p1
   Scenario: user can login with old password until confirmation email for new password is not confirmed
     Given there is registered user
     And login page of web application

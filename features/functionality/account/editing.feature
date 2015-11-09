@@ -22,6 +22,7 @@ Feature: Account Editing
     When I open edit account page
     Then I should see form data on edit account page
 
+  @p1
   Scenario: user can edit email with correct credentials
     Given there is registered user
     And I am logged in as user
@@ -48,6 +49,7 @@ Feature: Account Editing
       Signed in successfully.
       """
 
+  @p1
   Scenario: user can not edit account with incorrect email
     Given there is registered user
     And I am logged in as user
@@ -56,6 +58,7 @@ Feature: Account Editing
     And I submit form on edit account page
     Then edit account page should be displayed
 
+  @p1
   Scenario: user can not edit account with existing email
     Given there is registered user1
     And there is registered user2
@@ -68,6 +71,7 @@ Feature: Account Editing
       1 error prohibited this user from being saved: Email has already been taken
       """
 
+  @p1
   Scenario: user can not edit account with incorrect password
     Given there is registered user
     And I am logged in as user
@@ -79,6 +83,7 @@ Feature: Account Editing
       1 error prohibited this user from being saved: Current password is invalid
       """
 
+  @p1
   Scenario: user can not edit account with incorrect password confirmation
     Given there is registered user
     And I am logged in as user
@@ -90,6 +95,7 @@ Feature: Account Editing
       1 error prohibited this user from being saved: Password confirmation doesn't match Password
       """
 
+  @p1
   Scenario: user can not edit account with short password (less then 8 characters)
     Given there is registered user
     And I am logged in as user

@@ -1,4 +1,4 @@
-@ok
+@smoke
 Feature: Article list
   As user
   I want to view my articles

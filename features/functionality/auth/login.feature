@@ -3,13 +3,11 @@ Feature: Log In
   I want to use my credentials to login the system
   So I can login the system
 
-  @bvt
   Scenario: user can open login page via menu
     Given home page of web application
     When I click login menu item on home page
     Then login page should be displayed
 
-  @bvt
   Scenario: user can login with correct credentials
     Given there is registered user
     And login page of web application
@@ -18,7 +16,7 @@ Feature: Log In
     Then I should be logged in the system
     And I should be redirected to home page
 
-  @bvt @bug
+  @bug
   Scenario: user can login with remembering credentials
     Given there is registered user
     And login page of web application
@@ -67,7 +65,6 @@ Feature: Log In
       Invalid email or password.
       """
 
-  @bvt
   Scenario: user can not login until confirmation email is not confirmed
     Given sign up page of web application
     When I fill form on sign up page with new data
@@ -87,7 +84,6 @@ Feature: Log In
       You have to confirm your account before continuing.
       """
 
-  @bvt
   Scenario: canceled user can not login
     Given there is registered user
     And I am on login page

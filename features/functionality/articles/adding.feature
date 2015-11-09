@@ -15,6 +15,7 @@ Feature: Article Adding
     When I open article list page
     Then I should see article parameters on article list page
 
+  @p1
   Scenario: user can not add article with blank field
     When I click new article button on article list page
     And I fill form on new article page with blank data
@@ -24,6 +25,7 @@ Feature: Article Adding
    2 errors prohibited this article from being saved: Title can't be blank Title is too short (minimum is 5 characters)
     """
 
+  @p1
   Scenario: user can not add article with title is too short
     When I click new article button on article list page
     And I fill form on new article page with short title

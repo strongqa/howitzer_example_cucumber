@@ -1,4 +1,4 @@
-@ok
+@smoke
 Feature: Home
 
   Background:

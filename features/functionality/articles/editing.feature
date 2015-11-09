@@ -14,6 +14,7 @@ Feature: Article Editing
     And I submit form on edit article page
     Then I should see new article parameters on article page
 
+  @p1
   Scenario: user can not edit article with blank title
     When I click Edit article button on article list page
     And I fill form on edit article page with blank data
@@ -22,7 +23,8 @@ Feature: Article Editing
       """
       2 errors prohibited this article from being saved: Title can't be blank Title is too short (minimum is 5 characters)
       """
-      
+
+  @p1
   Scenario: user can not edit article with title is too short
     When I click Edit article button on article list page
     And I fill form on edit article page with short title

@@ -18,6 +18,7 @@ Feature: Article Comment Adding
       """
     And I should see user comment on article page
 
+  @p1
   Scenario: user can not add comment with blank comment body
     When I fill new comment form on article page with blank data
     And I submit new comment form on article page

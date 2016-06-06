@@ -3,7 +3,7 @@
 #############################################################
 
 Given /^opened browser$/ do
-  BlankPage.instance
+  Howitzer::Web::BlankPage.instance
 end
 
 Given /^(.+) page of web application$/ do |page|
@@ -53,7 +53,8 @@ end
 #              ACTIONS             #
 ####################################
 
-When /^I open (.+?) page$/ do |page|
+#we hanlde blank page separately
+When /^I open (?!blank)(.+?) page$/ do |page|
   page.open
 end
 
@@ -66,7 +67,7 @@ When /^I fill form on login page$/ do
 end
 
 When /^I fill form on login page with remembering credentials$/ do
-  LoginPage.given.fill_form(email: @user.email, password: @user.password, remember_me: yes)
+  LoginPage.given.fill_form(email: @user.email, password: @user.password, remember_me: 'yes')
 end
 
 When /^I submit form on (.+) page$/ do |page|
@@ -101,7 +102,8 @@ end
 #              CHECKS              #
 ####################################
 
-Then /^(.+) page should be displayed$/ do |page|
+#we hanlde blank page separately
+Then /^(?!blank)(.+) page should be displayed$/ do |page|
   page.wait_for_opened
 end
 
@@ -110,7 +112,7 @@ Then /^I should be logged in the system$/ do
 end
 
 Then /^I should not be logged in the system$/ do
-  expect(HomePage).to_not be_authenticated
+  expect(HomePage).to be_not_authenticated
 end
 
 Then /^I should see following text on (.+) page:$/ do |page, text|

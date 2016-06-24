@@ -104,7 +104,7 @@ end
 
 #we hanlde blank page separately
 Then /^(?!blank)(.+) page should be displayed$/ do |page|
-  page.wait_for_opened
+  expect(page).to be_displayed
 end
 
 Then /^I should be logged in the system$/ do

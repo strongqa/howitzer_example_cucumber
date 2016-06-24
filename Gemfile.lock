@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: 39567d187ef2294c759f1db087b7d5da462f25c1
+  revision: be50a22701d375f0c907c360caf2fabe3d942c9b
   branch: new_dsl
   specs:
     howitzer (1.1.0)
@@ -70,18 +70,20 @@ GEM
       addressable (~> 2.3)
     log4r (1.1.10)
     mime-types (2.99.2)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.9.0)
     multi_json (1.11.2)
     multi_test (0.1.2)
     multipart-post (2.0.0)
     netrc (0.11.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
+    pkg-config (1.1.7)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
-    rake (11.1.2)
+    rake (11.2.2)
     repeater (0.0.1)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -101,7 +103,7 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     rubyzip (1.2.0)
-    selenium-webdriver (2.53.0)
+    selenium-webdriver (2.53.3)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)

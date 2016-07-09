@@ -46,7 +46,7 @@ Given /^I am on (.+) page$/ do |page|
 end
 
 Given /^user logged out$/ do
-  ArticlePage.given.choose_menu('Logout')
+  ArticlePage.given.main_menu_section.choose_menu('Logout')
 end
 
 ####################################
@@ -59,7 +59,7 @@ When /^I open (?!blank)(.+?) page$/ do |page|
 end
 
 When /^I click (.+?) menu item on (.+) page$/ do |text, page|
-  page.given.choose_menu(text.capitalize)
+  page.given.main_menu_section.choose_menu(text.capitalize)
 end
 
 When /^I fill form on login page$/ do
@@ -91,11 +91,11 @@ When /^I click on (.+) link on users page$/ do |email|
 end
 
 When /^I log out$/ do
-  HomePage.given.choose_menu('Logout')
+  HomePage.given.main_menu_section.choose_menu('Logout')
 end
 
 When /^I navigate to (.*) list via main menu$/ do |item|
-  HomePage.given.choose_menu(item.capitalize)
+  HomePage.given.main_menu_section.choose_menu(item.capitalize)
 end
 
 ####################################

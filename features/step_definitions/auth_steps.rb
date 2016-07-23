@@ -3,74 +3,98 @@
 ####################################
 
 When /^I submit sign up form on sign up page$/ do
-  SignUpPage.given.submit_form
+  SignUpPage.on { submit_form }
 end
 
 When /^I fill form on sign up page$/ do
-  SignUpPage.given.fill_form(user_name: @user.name,
-                             email: @user.email,
-                             password: @user.password,
-                             password_confirmation: @user.password_confirmation)
+  user = @user
+  SignUpPage.on do
+    fill_form(user_name: user.name,
+              email: user.email,
+              password: user.password,
+              password_confirmation: user.password_confirmation)
+  end
 end
 
 When /^I fill form on sign up page with new data$/ do
   @user = build(:user)
-  SignUpPage.given.fill_form(user_name: @user.name,
-                             email: @user.email,
-                             password: @user.password,
-                             password_confirmation: @user.password_confirmation)
+  user = @user
+  SignUpPage.on do
+    fill_form(user_name: user.name,
+              email: user.email,
+              password: user.password,
+              password_confirmation: user.password_confirmation)
+  end
 end
 
 When /^I fill form on sign up page with blank data$/ do
-  SignUpPage.given.fill_form
+  SignUpPage.on { fill_form }
 end
 
 When /^I fill form on sign up page with not email data$/ do
   @user = build(:user)
-  SignUpPage.given.fill_form(email: 'test.123456789',
-                             password: @user.password,
-                             password_confirmation: @user.password_confirmation)
+  user = @user
+  SignUpPage.on do
+    fill_form(email: 'test.123456789',
+              password: user.password,
+              password_confirmation: user.password_confirmation)
+  end
 end
 
 When /^I fill form on sign up page with short password$/ do
   @user = build(:user)
-  SignUpPage.given.fill_form(email: @user.email,
-                             password: '123456',
-                             password_confirmation: '123456')
+  user = @user
+  SignUpPage.on do
+    fill_form(email: user.email,
+              password: '123456',
+              password_confirmation: '123456')
+  end
 end
 
 When /^I fill form on sign up page with different password data$/ do
   @user = build(:user)
-  SignUpPage.given.fill_form(email: @user.email,
-                             password: '1234567890',
-                             password_confirmation: '123456')
+  user = @user
+  SignUpPage.on do
+    fill_form(email: user.email,
+              password: '1234567890',
+              password_confirmation: '123456')
+  end
 end
 
 When /^I fill form on change password page$/ do
-  ChangePasswordPage.given.fill_form(new_password: @user.password,
-                                     confirm_new_password: @user.password_confirmation)
+  user = @user
+  ChangePasswordPage.on do
+    fill_form(new_password: user.password,
+              confirm_new_password: user.password_confirmation)
+  end
 end
 
 When /^I fill form on change password page with different data$/ do
-  ChangePasswordPage.given.fill_form(new_password: @user.password,
-                                     confirm_new_password: 'incorrect')
+  user = @user
+  ChangePasswordPage.on do
+    fill_form(new_password: user.password,
+              confirm_new_password: 'incorrect')
+  end
 end
 
 When /^I fill form on change password page with short password$/ do
-  ChangePasswordPage.given.fill_form(new_password: '123456',
-                                     confirm_new_password: '123456')
+  ChangePasswordPage.on do
+    fill_form(new_password: '123456',
+              confirm_new_password: '123456')
+  end
 end
 
 When /^I fill form on forgot password page$/ do
-  ForgotPasswordPage.given.fill_form(email: @user.email)
+  user = @user
+  ForgotPasswordPage.on { fill_form(email: user.email) }
 end
 
 When /^I fill form on forgot password page with incorrect data$/ do
-  ForgotPasswordPage.given.fill_form(email: 'test@resetpassword.com')
+  ForgotPasswordPage.on { fill_form(email: 'test@resetpassword.com') }
 end
 
 When /^I fill form on forgot password page with not email data$/ do
-  ForgotPasswordPage.given.fill_form(email: 'test.123456789')
+  ForgotPasswordPage.on { fill_form(email: 'test.123456789') }
 end
 
 When /^I confirm resetting password from (.+) email$/ do |email|
@@ -78,19 +102,22 @@ When /^I confirm resetting password from (.+) email$/ do |email|
 end
 
 When /^I fill form on login page with blank data$/ do
-  LoginPage.given.fill_form
+  LoginPage.on { fill_form }
 end
 
 When /^I fill form on login page with incorrect email$/ do
-  LoginPage.given.fill_form(email:'test@test.com', password: @user.password)
+  user = @user
+  LoginPage.on { fill_form(email:'test@test.com', password: user.password) }
 end
 
 When /^I fill form on login page with incorrect password$/ do
-  LoginPage.given.fill_form(email: @user.email, password: 'incorrect_password')
+  user = @user
+  LoginPage.on { fill_form(email: user.email, password: 'incorrect_password') }
 end
 
 When /^I fill form on login page with not email data$/ do
-  LoginPage.given.fill_form(email: 'test.1234567890', password: @user.password)
+  user = @user
+  LoginPage.on { fill_form(email: 'test.1234567890', password: user.password) }
 end
 
 When /^I confirm sing up from (.+) email$/ do |email|

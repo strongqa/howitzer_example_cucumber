@@ -3,7 +3,8 @@
 ####################################
 
 When(/^I click on user2 email on users page$/) do
-  UsersPage.given.open_user(@user2.email)
+  user2 = @user2
+  UsersPage.on { open_user(user2.email) }
 end
 
 ####################################
@@ -11,9 +12,11 @@ end
 ####################################
 
 Then /^I should see user email signed up on today's date$/ do
-  expect(UsersPage.given.user_registration_date(@user.email)).to include (Date.current.to_s(:db))
+  user = @user
+  UsersPage.on { expect(user_registration_date(user.email)).to include (Date.current.to_s(:db)) }
 end
 
 Then /^I should see user2 email text on (.+) page$/ do |page|
-  expect(page.given.text).to include(@user2.email)
+  user2 = @user2
+  page.as_page_class.on { expect(text).to include(user2.email) }
 end

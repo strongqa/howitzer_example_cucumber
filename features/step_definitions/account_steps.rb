@@ -8,8 +8,7 @@ end
 
 When /^I fill form on edit account page with new password and name$/ do
   user = @user
-  @new_data = build(:user)
-  new_data = @new_data
+  new_data = @new_data = build(:user)
   EditAccountPage.on do
     fill_form(user_name: new_data.name,
               password:new_data.password,
@@ -19,8 +18,7 @@ When /^I fill form on edit account page with new password and name$/ do
 end
 
 When /^I fill form on edit account page with incorrect current password$/ do
-  @new_data = build(:user)
-  new_data = @new_data
+  new_data = @new_data = build(:user)
   EditAccountPage.on do
     fill_form(password:new_data.password,
               password_confirmation: new_data.password_confirmation,
@@ -30,8 +28,7 @@ end
 
 When /^I fill form on edit account page with incorrect password confirmation$/ do
   user = @user
-  @new_data = build(:user)
-  new_data = @new_data
+  new_data = @new_data = build(:user)
   EditAccountPage.on do
     fill_form(password:new_data.password,
               password_confirmation: '',
@@ -50,8 +47,7 @@ end
 
 When /^I fill form on edit account page with new email$/ do
   user = @user
-  @new_data = build(:user)
-  new_data = @new_data
+  new_data = @new_data = build(:user)
   EditAccountPage.on do
     fill_form(email:  new_data.email,
               current_password: user.password)

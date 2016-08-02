@@ -17,8 +17,7 @@ When /^I fill form on sign up page$/ do
 end
 
 When /^I fill form on sign up page with new data$/ do
-  @user = build(:user)
-  user = @user
+  user = @user = build(:user)
   SignUpPage.on do
     fill_form(user_name: user.name,
               email: user.email,
@@ -32,8 +31,7 @@ When /^I fill form on sign up page with blank data$/ do
 end
 
 When /^I fill form on sign up page with not email data$/ do
-  @user = build(:user)
-  user = @user
+  user = @user = build(:user)
   SignUpPage.on do
     fill_form(email: 'test.123456789',
               password: user.password,
@@ -42,8 +40,7 @@ When /^I fill form on sign up page with not email data$/ do
 end
 
 When /^I fill form on sign up page with short password$/ do
-  @user = build(:user)
-  user = @user
+  user = @user = build(:user)
   SignUpPage.on do
     fill_form(email: user.email,
               password: '123456',
@@ -52,8 +49,7 @@ When /^I fill form on sign up page with short password$/ do
 end
 
 When /^I fill form on sign up page with different password data$/ do
-  @user = build(:user)
-  user = @user
+  user = @user = build(:user)
   SignUpPage.on do
     fill_form(email: user.email,
               password: '1234567890',

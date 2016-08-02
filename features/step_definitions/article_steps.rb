@@ -57,7 +57,7 @@ When /^I destroy article with confirmation on article list page$/ do
 end
 
 When /^I destroy article without confirmation on article list page$/ do
-  confirmation =  false
+  confirmation = false
   article = @article
   ArticleListPage.on { destroy_article(article.title, confirmation) }
 end
@@ -67,8 +67,7 @@ When /^I click (.+) article on article list page$/ do |article|
 end
 
 When /^I fill new comment form on article page$/ do
-  @comment = build(:comment)
-  comment = @comment
+  comment = @comment = build(:comment)
   ArticlePage.on { fill_comment_form(body: comment.body) }
 end
 
@@ -99,8 +98,7 @@ When /^I navigate to article on article list page$/ do
 end
 
 When /^I fill form on new article page$/ do
-  @article = build(:article)
-  article = @article
+  article = @article = build(:article)
   NewArticlePage.on { fill_form(title: article.title, text: article.text) }
 end
 
@@ -109,14 +107,12 @@ When /^I fill form on new article page with blank data$/ do
 end
 
 When /^I fill form on new article page with short title$/ do
-  @article = build(:article)
-  article = @article
+  article = @article = build(:article)
   NewArticlePage.on { fill_form(title: '123', text: article.text) }
 end
 
 When /^I fill form on edit article page with new data$/ do
-  @new_article = build(:article)
-  new_article = @new_article
+  new_article = @new_article = build(:article)
   EditArticlePage.on { fill_form(title: new_article.title, text: new_article.text) }
 end
 

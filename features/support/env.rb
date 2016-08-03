@@ -1,8 +1,8 @@
 require 'cucumber'
 require 'capybara/cucumber'
 require_relative '../../boot'
+require_relative '../../config/capybara'
 
-World(Howitzer::CapybaraSettings)
 World(FactoryGirl::Syntax::Methods)
 World(Howitzer::Helpers)
 
@@ -13,7 +13,7 @@ Howitzer::Utils::DataStorage.store('sauce', :start_time, Time.now.utc)
 Howitzer::Utils::DataStorage.store('sauce', :status, true)
 
 if Howitzer::Helpers.sauce_driver?
-  Capybara.drivers[:sauce][].options[:desired_capabilities][:name] = Howitzer::CapybaraSettings.suite_name
+  Capybara.drivers[:sauce][].options[:desired_capabilities][:name] = Howitzer::Helpers.suite_name
 end
 
 Before do |scenario|
@@ -29,16 +29,16 @@ After do |scenario|
     log.info "SAUCE VIDEO #{@session_start} - #{session_end} URL: #{sauce_resource_path('video.flv')}"
   elsif ie_browser?
     log.info 'IE reset session'
-    execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
+    page.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
   end
   Howitzer::Utils::DataStorage.clear_all_ns
 end
 
 at_exit do
   if Howitzer::Helpers.sauce_driver?
-    log.info "SAUCE SERVER LOG URL: #{Howitzer::CapybaraSettings.sauce_resource_path('selenium-server.log')}"
-    Howitzer::CapybaraSettings.update_sauce_job_status(passed: Howitzer::Utils::DataStorage.extract('sauce', :status))
+    log.info "SAUCE SERVER LOG URL: #{Howitzer::Helpers.sauce_resource_path('selenium-server.log')}"
+    Howitzer::Helpers.update_sauce_job_status(passed: Howitzer::Utils::DataStorage.extract('sauce', :status))
   end
 end
 
-# TODO: try to remove extra namespaces like Howitzer::Utils:: and Howitzer::CapybaraSettings
+# TODO: try to remove extra namespaces like Howitzer::Utils::

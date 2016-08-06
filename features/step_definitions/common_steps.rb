@@ -71,7 +71,7 @@ end
 # rubocop:enable Style/SymbolProc
 
 When /^I click (.+?) menu item on (.+) page$/ do |text, page|
-  page.as_page_class.on { main_menu_section.choose_menu(text.capitalize) }
+  page.on { main_menu_section.choose_menu(text.capitalize) }
 end
 
 When /^I fill form on login page$/ do
@@ -85,7 +85,7 @@ When /^I fill form on login page with remembering credentials$/ do
 end
 
 When /^I submit form on (.+) page$/ do |page|
-  page.as_page_class.on { submit_form }
+  page.on { submit_form }
 end
 
 When /^I confirm (.+) account from (.+) email$/ do |recipient, email|
@@ -93,7 +93,7 @@ When /^I confirm (.+) account from (.+) email$/ do |recipient, email|
 end
 
 When /^I click back to articles link on (.+) page$/ do |page|
-  page.as_page_class.on { back_to_article_list }
+  page.on { back_to_article_list }
 end
 
 When /^I click Forgot password\? link on login page$/ do
@@ -130,11 +130,11 @@ Then /^I should not be logged in the system$/ do
 end
 
 Then /^I should see following text on (.+) page:$/ do |page, text|
-  page.as_page_class.on { expect(text).to include(text) }
+  page.on { expect(text).to include(text) }
 end
 
 Then /^I should see user email on (.+) page$/ do |page|
-  page.as_page_class.on { expect(text).to include(@user.email) }
+  page.on { expect(text).to include(@user.email) }
 end
 
 Then /^I should receive (.+) email for (.+) recipient$/ do |email, recipient|
@@ -142,5 +142,5 @@ Then /^I should receive (.+) email for (.+) recipient$/ do |email, recipient|
 end
 
 Then /^I should be redirected to (.+) page$/ do |page|
-  page.as_page_class.on { expect(is_expected).to be_displayed }
+  expect(page).to be_displayed
 end

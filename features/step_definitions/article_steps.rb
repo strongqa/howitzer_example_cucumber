@@ -143,7 +143,7 @@ end
 
 Then /^I see comment displayed on (.*) page$/ do |page|
   comment = @comment
-  page.as_page_class.on { expect(comment_data).to eql(comment.body) }
+  page.on { expect(comment_data).to eql(comment.body) }
 end
 
 Then /^I should see article on article list page$/ do
@@ -158,18 +158,18 @@ end
 
 Then /^I should not see comment on (.+) page$/ do |page|
   comment = @comment
-  page.as_page_class.on { expect(text).to_not include(comment.body) }
+  page.on { expect(text).to_not include(comment.body) }
 end
 
 Then /^I should see user comment on (.+) page$/ do |page|
   comment = @comment
-  page.as_page_class.on { expect(text).to include(comment.body) }
+  page.on { expect(text).to include(comment.body) }
 end
 
 Then /^I should see comments on (.+) page$/ do |page|
   comment1 = @comment1
   comment2 = @comment2
-  page.as_page_class.on do
+  page.on do
     expect(text).to include(comment1.body)
     expect(text).to include(comment2.body)
   end
@@ -177,7 +177,7 @@ end
 
 Then /^I should see admin user comment on (.+) page$/ do |page|
   comment = @comment
-  page.as_page_class.on do
+  page.on do
     expect(page.given.text).to include(settings.def_test_user)
     expect(page.given.text).to include(comment.body)
   end

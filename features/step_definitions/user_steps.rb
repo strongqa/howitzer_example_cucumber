@@ -18,5 +18,5 @@ end
 
 Then /^I should see user2 email text on (.+) page$/ do |page|
   user2 = @user2
-  page.as_page_class.on { expect(text).to include(user2.email) }
+  page.on { expect(text).to include(user2.email) }
 end

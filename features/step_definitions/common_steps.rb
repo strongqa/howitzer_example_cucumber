@@ -27,7 +27,6 @@ Given /^I am logged in as user1$/ do
 end
 
 Given /^article with parameters$/ do |table|
-  article = table.rows_hash.symbolize_keys
   ArticleListPage.on { add_new_article }
   NewArticlePage.on do
     fill_form(table.rows_hash.symbolize_keys)

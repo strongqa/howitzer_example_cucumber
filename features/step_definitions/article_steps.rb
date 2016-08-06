@@ -25,15 +25,24 @@ Given /^there is article2$/ do
 end
 
 Given /^there is comment for article$/ do
-  @comment = @article.comments.create(body: 'Some comment', user_id: User.where(email: settings.def_test_user).all.first.id)
+  @comment = @article.comments.create(
+    body: 'Some comment',
+    user_id: User.where(email: settings.def_test_user).all.first.id
+  )
 end
 
 Given /^there is comment1 for article$/ do
-  @comment1 = @article.comments.create(body: 'Some comment1', user_id: User.where(email: settings.def_test_user).all.first.id)
+  @comment1 = @article.comments.create(
+    body: 'Some comment1',
+    user_id: User.where(email: settings.def_test_user).all.first.id
+  )
 end
 
 Given /^there is comment2 for article$/ do
-  @comment2 = @article.comments.create(body: 'Some comment2', user_id: User.where(email: settings.def_test_user).all.first.id)
+  @comment2 = @article.comments.create(
+    body: 'Some comment2',
+    user_id: User.where(email: settings.def_test_user).all.first.id
+  )
 end
 
 Given /^opened article page$/ do

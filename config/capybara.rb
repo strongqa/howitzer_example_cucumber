@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 HOWITZER_KNOWN_DRIVERS = [
   :selenium,
   :selenium_grid,

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 ####################################
 #              ACTIONS             #
 ####################################
@@ -103,7 +104,7 @@ end
 
 When /^I fill form on login page with incorrect email$/ do
   user = @user
-  LoginPage.on { fill_form(email:'test@test.com', password: user.password) }
+  LoginPage.on { fill_form(email: 'test@test.com', password: user.password) }
 end
 
 When /^I fill form on login page with incorrect password$/ do

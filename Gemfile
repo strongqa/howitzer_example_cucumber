@@ -15,3 +15,7 @@ gem 'factory_girl'
 
 gem 'syntax'
 gem 'cucumber', '~>2.0'
+
+gem 'rubocop'
+gem 'pry'
+gem 'pry-byebug'

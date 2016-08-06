@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #############################################################
 #                      ACTIONS                              #
 #############################################################
@@ -11,7 +12,7 @@ When /^I fill form on edit account page with new password and name$/ do
   new_data = @new_data = build(:user)
   EditAccountPage.on do
     fill_form(user_name: new_data.name,
-              password:new_data.password,
+              password: new_data.password,
               password_confirmation: new_data.password_confirmation,
               current_password: user.password)
   end
@@ -20,7 +21,7 @@ end
 When /^I fill form on edit account page with incorrect current password$/ do
   new_data = @new_data = build(:user)
   EditAccountPage.on do
-    fill_form(password:new_data.password,
+    fill_form(password: new_data.password,
               password_confirmation: new_data.password_confirmation,
               current_password: 'incorrect_password')
   end
@@ -30,7 +31,7 @@ When /^I fill form on edit account page with incorrect password confirmation$/ d
   user = @user
   new_data = @new_data = build(:user)
   EditAccountPage.on do
-    fill_form(password:new_data.password,
+    fill_form(password: new_data.password,
               password_confirmation: '',
               current_password: user.password)
   end
@@ -39,7 +40,7 @@ end
 When /^I fill form on edit account page with short password$/ do
   user = @user
   EditAccountPage.on do
-    fill_form(password:'123456',
+    fill_form(password: '123456',
               password_confirmation: '123456',
               current_password: user.password)
   end
@@ -92,10 +93,10 @@ Then(/^I should see form data on edit account page$/) do
   user = @user
   new_data = @new_data
   EditAccountPage.on do
-    expect(form_data).to eq({:user_name => new_data.name,
-                             :email => user.email,
-                             :password => '',
-                             :password_confirmation => '',
-                             :current_password => ''})
+    expect(form_data).to eq(user_name: new_data.name,
+                            email: user.email,
+                            password: '',
+                            password_confirmation: '',
+                            current_password: '')
   end
 end

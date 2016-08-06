@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 When /^I click (.+) article button on article page$/ do |button|
   ArticlePage.on { click_article_button(button) }
 end

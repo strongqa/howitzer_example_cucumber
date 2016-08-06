@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'cucumber'
 require 'capybara/cucumber'
 require_relative '../../boot'

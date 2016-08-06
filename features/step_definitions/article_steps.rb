@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #############################################################
 #                      PREREQUISITES                        #
 #############################################################
@@ -7,9 +8,9 @@ Given /^opened article '(.*)' page$/ do |article_title|
 end
 
 Given /^there is comment for article (.*) with parameter:$/ do |article, table|
-  step "there is article with parameters:", Cucumber::Ast::Table.new([[:title,article.title], [:text,article.text]] )
-  step "I fill new comment form on article page with data:", table
-  step "I submit new comment form on article page"
+  step 'there is article with parameters:', Cucumber::Ast::Table.new([[:title, article.title], [:text, article.text]])
+  step 'I fill new comment form on article page with data:', table
+  step 'I submit new comment form on article page'
 end
 
 Given /^there is article$/ do
@@ -25,15 +26,15 @@ Given /^there is article2$/ do
 end
 
 Given /^there is comment for article$/ do
-  @comment = @article.comments.create(body: "Some comment", user_id: User.where(email: settings.def_test_user).all.first.id)
+  @comment = @article.comments.create(body: 'Some comment', user_id: User.where(email: settings.def_test_user).all.first.id)
 end
 
 Given /^there is comment1 for article$/ do
-  @comment1 = @article.comments.create(body: "Some comment1", user_id: User.where(email: settings.def_test_user).all.first.id)
+  @comment1 = @article.comments.create(body: 'Some comment1', user_id: User.where(email: settings.def_test_user).all.first.id)
 end
 
 Given /^there is comment2 for article$/ do
-  @comment2 = @article.comments.create(body: "Some comment2", user_id: User.where(email: settings.def_test_user).all.first.id)
+  @comment2 = @article.comments.create(body: 'Some comment2', user_id: User.where(email: settings.def_test_user).all.first.id)
 end
 
 Given /^opened article page$/ do
@@ -51,7 +52,7 @@ When /^I click new article button on article list page$/ do
 end
 
 When /^I destroy article with confirmation on article list page$/ do
-  confirmation =  true
+  confirmation = true
   article = @article
   ArticleListPage.on { destroy_article(article.title, confirmation) }
 end
@@ -82,13 +83,13 @@ end
 When /^I destroy comment with confirmation on article page$/ do
   confirmation = true
   comment = @comment
-  ArticlePage.on { destroy_comment(comment.body,confirmation) }
+  ArticlePage.on { destroy_comment(comment.body, confirmation) }
 end
 
 When /^I destroy comment without confirmation on article page$/ do
   confirmation = false
   comment = @comment
-  ArticlePage.on { destroy_comment(comment.body,confirmation) }
+  ArticlePage.on { destroy_comment(comment.body, confirmation) }
 end
 
 When /^I navigate to article on article list page$/ do
@@ -126,7 +127,7 @@ When /^I fill form on edit article page with short title$/ do
 end
 
 When /^I go to the article page$/ do
-  step "opened article page"
+  step 'opened article page'
 end
 ####################################
 #              CHECKS              #

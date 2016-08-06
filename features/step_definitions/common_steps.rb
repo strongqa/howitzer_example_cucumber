@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 #############################################################
 #                      PREREQUISITES                        #
 #############################################################
@@ -6,14 +7,11 @@ Given /^opened browser$/ do
   Howitzer::Web::BlankPage.instance
 end
 
-Given /^(.+) page of web application$/ do |page|
-  page.open
-end
+Given /^(.+) page of web application$/, &:open
 
 Given /^there is registered user$/ do
   @user = create(:user)
 end
-
 
 Given /^there is registered user1$/ do
   @user1 = create(:user)
@@ -49,9 +47,7 @@ Given /^I am logged in as user$/ do
   LoginPage.on { login_as(user.email, user.password) }
 end
 
-Given /^I am on (.+) page$/ do |page|
-  page.open
-end
+Given /^I am on (.+) page$/, &:open
 
 Given /^user logged out$/ do
   ArticlePage.on { main_menu_section.choose_menu('Logout') }
@@ -61,10 +57,8 @@ end
 #              ACTIONS             #
 ####################################
 
-#we hanlde blank page separately
-When /^I open (?!blank)(.+?) page$/ do |page|
-  page.open
-end
+# we hanlde blank page separately
+When /^I open (?!blank)(.+?) page$/, &:open
 
 When /^I click (.+?) menu item on (.+) page$/ do |text, page|
   page.as_page_class.on { main_menu_section.choose_menu(text.capitalize) }
@@ -97,7 +91,7 @@ When /^I click Forgot password\? link on login page$/ do
 end
 
 When /^I click on (.+) link on users page$/ do |email|
- UsersPage.on { open_user(email) }
+  UsersPage.on { open_user(email) }
 end
 
 When /^I log out$/ do
@@ -112,7 +106,7 @@ end
 #              CHECKS              #
 ####################################
 
-#we hanlde blank page separately
+# we hanlde blank page separately
 Then /^(?!blank)(.+) page should be displayed$/ do |page|
   expect(page).to be_displayed
 end
@@ -137,6 +131,4 @@ Then /^I should receive (.+) email for (.+) recipient$/ do |email, recipient|
   email.as_email_class.find_by_recipient(recipient)
 end
 
-Then /^I should be redirected to (.+) page$/ do |page|
-  page.given
-end
+Then /^I should be redirected to (.+) page$/, &:given

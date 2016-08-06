@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 ####################################
 #              ACTIONS             #
 ####################################
@@ -13,7 +14,7 @@ end
 
 Then /^I should see user email signed up on today's date$/ do
   user = @user
-  UsersPage.on { expect(user_registration_date(user.email)).to include (Date.current.to_s(:db)) }
+  UsersPage.on { expect(user_registration_date(user.email)).to include Date.current.to_s(:db) }
 end
 
 Then /^I should see user2 email text on (.+) page$/ do |page|

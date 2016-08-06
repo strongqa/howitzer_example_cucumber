@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 Dir.chdir(File.join(File.dirname(__FILE__), '.'))
 
 def settings

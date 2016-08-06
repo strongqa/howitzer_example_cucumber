@@ -4,12 +4,9 @@ howitzer_example_cucumber
 # Howitzer
 [![Build Status](https://travis-ci.org/strongqa/howitzer_example_cucumber.svg?branch=master)][travis]
 [![Dependency Status](https://gemnasium.com/strongqa/howitzer_example_cucumber.png)][gemnasium]
-[![Code Climate](https://codeclimate.com/github/strongqa/howitzer_example_cucumber/badges/gpa.svg)][codeclimate]
-
 
 [travis]: https://travis-ci.org/strongqa/howitzer_example_cucumber
 [gemnasium]: https://gemnasium.com/strongqa/howitzer_example_cucumber
-[codeclimate]: https://codeclimate.com/github/strongqa/howitzer_example_cucumber
 
 Howitzer example project based on Cucumber for demo web application http://demoapp.strongqa.com
 
@@ -29,19 +26,19 @@ Typically it is not required for a regular project based on [Howitzer](https://g
 
 ### How to try the project locally
 
-1. Clone project
+- Clone project
 
 ```
-git clone  --recursive git@github.com:strongqa/howitzer_example_cucumber.git
+git clone --recursive git@github.com:strongqa/howitzer_example_cucumber.git
 ```
 
-2. Install dependencies
+- Install dependencies
 
 ```
 bundle install
 ```
 
-3. Get list of available commands
+- Get list of available commands
 
 ```
 rake -T
@@ -50,6 +47,7 @@ rake -T
 ## Contributing
 
 Code quality is controlled by [Rubocop](https://github.com/bbatsov/rubocop)
+
 It is useful to activate rubocop pre-commit git hook for changed files.
 
 ```

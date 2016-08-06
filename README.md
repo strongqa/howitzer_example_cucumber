@@ -1,7 +1,6 @@
-howitzer_example_cucumber
+Howitzer Example Cucumber
 =======================
 
-# Howitzer
 [![Build Status](https://travis-ci.org/strongqa/howitzer_example_cucumber.svg?branch=master)][travis]
 [![Dependency Status](https://gemnasium.com/strongqa/howitzer_example_cucumber.png)][gemnasium]
 

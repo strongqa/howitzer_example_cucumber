@@ -11,6 +11,7 @@ When /^I fill form on edit account page with new password and name$/ do
   new_data = @new_data = build(:user)
   EditAccountPage.on do
     fill_form(user_name: new_data.name,
+              email: user.email,
               password: new_data.password,
               password_confirmation: new_data.password_confirmation,
               current_password: user.password)

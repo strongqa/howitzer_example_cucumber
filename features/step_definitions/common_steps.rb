@@ -6,7 +6,11 @@ Given /^opened browser$/ do
   Howitzer::Web::BlankPage.instance
 end
 
-Given /^(.+) page of web application$/, &:open
+# rubocop:disable Style/SymbolProc
+Given /^(.+) page of web application$/ do |page|
+  page.open
+end
+# rubocop:enable Style/SymbolProc
 
 Given /^there is registered user$/ do
   @user = create(:user)

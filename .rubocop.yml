@@ -3,7 +3,7 @@
 
 AllCops:
   TargetRubyVersion: 2.3
-  Includes:
+  Include:
       - Rakefile
       - Gemfile
 

@@ -49,7 +49,11 @@ Given /^I am logged in as user$/ do
   LoginPage.on { login_as(user.email, user.password) }
 end
 
-Given /^I am on (.+) page$/, &:open
+# rubocop:disable Style/SymbolProc
+Given /^I am on (.+) page$/ do |page|
+  page.open
+end
+# rubocop:enable Style/SymbolProc
 
 Given /^user logged out$/ do
   ArticlePage.on { main_menu_section.choose_menu('Logout') }
@@ -60,7 +64,11 @@ end
 ####################################
 
 # we hanlde blank page separately
-When /^I open (?!blank)(.+?) page$/, &:open
+# rubocop:disable Style/SymbolProc
+When /^I open (?!blank)(.+?) page$/ do |page|
+  page.open
+end
+# rubocop:enable Style/SymbolProc
 
 When /^I click (.+?) menu item on (.+) page$/ do |text, page|
   page.as_page_class.on { main_menu_section.choose_menu(text.capitalize) }
@@ -133,4 +141,6 @@ Then /^I should receive (.+) email for (.+) recipient$/ do |email, recipient|
   email.as_email_class.find_by_recipient(recipient)
 end
 
-Then /^I should be redirected to (.+) page$/, &:given
+Then /^I should be redirected to (.+) page$/ do |page|
+  page.as_page_class.on { expect(is_expected).to be_displayed }
+end

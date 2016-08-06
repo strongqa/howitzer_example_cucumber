@@ -27,3 +27,6 @@ Documentation:
 
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+Metrics/ModuleLength:
+  Max: 150

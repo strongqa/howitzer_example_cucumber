@@ -25,14 +25,5 @@ Style/CaseEquality:
 Documentation:
   Enabled: false
 
-# MethodLength:
-#   Max: 30
-
-# Style/TrivialAccessors:
-#   AllowDSLWriters: true
-
 Style/FrozenStringLiteralComment:
   Enabled: false
-
-# Metrics/ModuleLength:
-#   Max: 120

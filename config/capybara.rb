@@ -1,4 +1,4 @@
-HOWITZER_KNOWN_DRIVERS = [  
+HOWITZER_KNOWN_DRIVERS = [
   :selenium,
   :selenium_grid,
   :webkit,

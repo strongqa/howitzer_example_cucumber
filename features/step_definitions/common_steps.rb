@@ -40,7 +40,7 @@ end
 
 Given /^I am logged in as admin user$/ do
   LoginPage.open
-  LoginPage.on { login_as(settings.def_test_user, settings.def_test_pass) }
+  LoginPage.on { login_as(settings.app_test_user, settings.app_test_pass) }
 end
 
 Given /^I am logged in as user$/ do

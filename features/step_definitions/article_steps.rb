@@ -27,21 +27,21 @@ end
 Given /^there is comment for article$/ do
   @comment = @article.comments.create(
     body: 'Some comment',
-    user_id: User.where(email: settings.app_test_user).all.first.id
+    user_id: User.where(email: Howitzer.app_test_user).all.first.id
   )
 end
 
 Given /^there is comment1 for article$/ do
   @comment1 = @article.comments.create(
     body: 'Some comment1',
-    user_id: User.where(email: settings.app_test_user).all.first.id
+    user_id: User.where(email: Howitzer.app_test_user).all.first.id
   )
 end
 
 Given /^there is comment2 for article$/ do
   @comment2 = @article.comments.create(
     body: 'Some comment2',
-    user_id: User.where(email: settings.app_test_user).all.first.id
+    user_id: User.where(email: Howitzer.app_test_user).all.first.id
   )
 end
 
@@ -178,7 +178,7 @@ end
 Then /^I should see admin user comment on (.+) page$/ do |page|
   comment = @comment
   page.on do
-    expect(page.given.text).to include(settings.app_test_user)
+    expect(page.given.text).to include(Howitzer.app_test_user)
     expect(page.given.text).to include(comment.body)
   end
 end

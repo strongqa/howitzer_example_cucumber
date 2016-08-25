@@ -39,8 +39,9 @@ Given /^article with parameters$/ do |table|
 end
 
 Given /^I am logged in as admin user$/ do
+  user = create(:user, :admin)
   LoginPage.open
-  LoginPage.on { login_as(Howitzer.app_test_user, Howitzer.app_test_pass) }
+  LoginPage.on { login_as(user.email, user.password) }
 end
 
 Given /^I am logged in as user$/ do

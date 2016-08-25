@@ -14,6 +14,7 @@ gem 'repeater'
 gem 'spyke'
 gem 'multi_json'
 gem 'factory_girl'
+gem 'capybara-screenshot'
 
 gem 'syntax'
 gem 'cucumber', '~>2.0'

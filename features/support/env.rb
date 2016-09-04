@@ -1,6 +1,6 @@
 require 'cucumber'
 require 'capybara/cucumber'
-require 'capybara-screenshot/cucumber
+require 'capybara-screenshot/cucumber'
 require_relative '../../config/boot'
 require_relative '../../config/capybara'
 

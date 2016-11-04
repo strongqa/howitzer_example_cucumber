@@ -37,9 +37,8 @@ Given /^there is comment2 for article$/ do
 end
 
 Given /^opened article page$/ do
-  article = @article
   ArticleListPage.open
-  ArticleListPage.on { open_article(article.title) }
+  ArticleListPage.on { open_article(out(:@article).title) }
 end
 
 #############################################################
@@ -51,15 +50,11 @@ When /^I click new article button on article list page$/ do
 end
 
 When /^I destroy article with confirmation on article list page$/ do
-  confirmation = true
-  article = @article
-  ArticleListPage.on { destroy_article(article.title, confirmation) }
+  ArticleListPage.on { destroy_article(out(:@article).title, true) }
 end
 
 When /^I destroy article without confirmation on article list page$/ do
-  confirmation = false
-  article = @article
-  ArticleListPage.on { destroy_article(article.title, confirmation) }
+  ArticleListPage.on { destroy_article(out(:@article).title, false) }
 end
 
 When /^I click (.+) article on article list page$/ do |article|
@@ -67,8 +62,8 @@ When /^I click (.+) article on article list page$/ do |article|
 end
 
 When /^I fill new comment form on article page$/ do
-  comment = @comment = build(:comment)
-  ArticlePage.on { fill_comment_form(body: comment.body) }
+  @comment = build(:comment)
+  ArticlePage.on { fill_comment_form(body: out(:@comment).body) }
 end
 
 When /^I fill new comment form on article page with blank data$/ do
@@ -80,26 +75,21 @@ When /^I submit new comment form on article page$/ do
 end
 
 When /^I destroy comment with confirmation on article page$/ do
-  confirmation = true
-  comment = @comment
-  ArticlePage.on { destroy_comment(comment.body, confirmation) }
+  ArticlePage.on { destroy_comment(out(:@comment).body, true) }
 end
 
 When /^I destroy comment without confirmation on article page$/ do
-  confirmation = false
-  comment = @comment
-  ArticlePage.on { destroy_comment(comment.body, confirmation) }
+  ArticlePage.on { destroy_comment(out(:@comment).body, false) }
 end
 
 When /^I navigate to article on article list page$/ do
-  article = @article
   ArticleListPage.open
-  ArticleListPage.on { open_article(article.title) }
+  ArticleListPage.on { open_article(out(:@article).title) }
 end
 
 When /^I fill form on new article page$/ do
-  article = @article = build(:article)
-  NewArticlePage.on { fill_form(title: article.title, text: article.text) }
+  @article = build(:article)
+  NewArticlePage.on { fill_form(title: out(:@article).title, text: out(:@article).text) }
 end
 
 When /^I fill form on new article page with blank data$/ do
@@ -107,13 +97,13 @@ When /^I fill form on new article page with blank data$/ do
 end
 
 When /^I fill form on new article page with short title$/ do
-  article = @article = build(:article)
-  NewArticlePage.on { fill_form(title: '123', text: article.text) }
+  @article = build(:article)
+  NewArticlePage.on { fill_form(title: '123', text: out(:@article).text) }
 end
 
 When /^I fill form on edit article page with new data$/ do
-  new_article = @new_article = build(:article)
-  EditArticlePage.on { fill_form(title: new_article.title, text: new_article.text) }
+  @new_article = build(:article)
+  EditArticlePage.on { fill_form(title: out(:@new_article).title, text: out(:@new_article).text) }
 end
 
 When /^I fill form on edit article page with blank data$/ do
@@ -121,8 +111,7 @@ When /^I fill form on edit article page with blank data$/ do
 end
 
 When /^I fill form on edit article page with short title$/ do
-  article = @article
-  EditArticlePage.on { fill_form(title: '123', text: article.text) }
+  EditArticlePage.on { fill_form(title: '123', text: out(:@article).text) }
 end
 
 When /^I go to the article page$/ do
@@ -133,44 +122,36 @@ end
 ####################################
 
 Then /^I see comment displayed on (.*) page$/ do |page|
-  comment = @comment
-  page.on { expect(comment_data).to eql(comment.body) }
+  page.on { expect(comment_data).to eql(out(:@comment).body) }
 end
 
 Then /^I should see article on article list page$/ do
-  article = @article
-  ArticleListPage.on { expect(text).to include(article.title) }
+  ArticleListPage.on { expect(text).to include(out(:@article).title) }
 end
 
 Then /^I should not see article on article list page$/ do
-  article = @article
-  ArticleListPage.on { expect(text).to_not include(article.title) }
+  ArticleListPage.on { expect(text).to_not include(out(:@article).title) }
 end
 
 Then /^I should not see comment on (.+) page$/ do |page|
-  comment = @comment
-  page.on { expect(text).to_not include(comment.body) }
+  page.on { expect(text).to_not include(out(:@comment).body) }
 end
 
 Then /^I should see user comment on (.+) page$/ do |page|
-  comment = @comment
-  page.on { expect(text).to include(comment.body) }
+  page.on { expect(text).to include(out(:@comment).body) }
 end
 
 Then /^I should see comments on (.+) page$/ do |page|
-  comment1 = @comment1
-  comment2 = @comment2
   page.on do
-    expect(text).to include(comment1.body)
-    expect(text).to include(comment2.body)
+    expect(text).to include(out(:@comment1).body)
+    expect(text).to include(out(:@comment2).body)
   end
 end
 
 Then /^I should see admin user comment on (.+) page$/ do |page|
-  comment = @comment
   page.on do
     expect(page.given.text).to include(Howitzer.app_test_user)
-    expect(page.given.text).to include(comment.body)
+    expect(page.given.text).to include(out(:@comment).body)
   end
 end
 
@@ -183,10 +164,9 @@ Then /^I should see body field on article page$/ do
 end
 
 Then /^I should see buttons: edit article, destroy comment, create comment on article page$/ do
-  comment = @comment
   ArticlePage.on do
     is_expected.to have_edit_article_button_element
     is_expected.to have_add_comment_button_element
-    is_expected.to have_destroy_comment_element(comment.body)
+    is_expected.to have_destroy_comment_element(out(:@comment).body)
   end
 end

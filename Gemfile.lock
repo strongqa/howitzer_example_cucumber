@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: e258311d171f4505ffbd70681c126562ef6eb158
+  revision: ef429f9aae2c8a0ae8a9c2ab0922664f9753d96e
   branch: master
   specs:
     howitzer (2.0.0)
@@ -11,15 +11,15 @@ GIT
       log4r (~> 1.1.10)
       rake
       rspec (~> 3.2)
-      selenium-webdriver
+      selenium-webdriver (< 3)
       sexy_settings
 
 GIT
   remote: git://github.com/teampoltergeist/poltergeist.git
-  revision: ae51ce7f9c24d3977d8f6d14add84cfac528c2b0
+  revision: 17364009375f39f3cc750c82ac41f622395b1691
   branch: master
   specs:
-    poltergeist (1.10.0)
+    poltergeist (1.11.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
@@ -34,18 +34,19 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.4.0)
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
     ast (2.3.0)
     builder (3.2.2)
-    byebug (9.0.5)
-    capybara (2.8.1)
+    byebug (9.0.6)
+    capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-screenshot (1.0.13)
+    capybara-screenshot (1.0.14)
       capybara (>= 1.0, < 3)
       launchy
     childprocess (0.5.9)
@@ -65,7 +66,7 @@ GEM
       gherkin (~> 4.0)
     cucumber-wire (0.0.1)
     diff-lcs (1.2.5)
-    domain_name (0.5.20160615)
+    domain_name (0.5.20161021)
       unf (>= 0.0.5, < 1.0.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
@@ -76,7 +77,7 @@ GEM
     ffi (1.9.14)
     gherkin (4.0.0)
     gli (2.14.0)
-    http-cookie (1.0.2)
+    http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (0.7.0)
     launchy (2.4.3)
@@ -87,17 +88,15 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
-    minitest (5.9.0)
+    minitest (5.9.1)
     multi_json (1.12.1)
     multi_test (0.1.2)
     multipart-post (2.0.0)
     netrc (0.11.0)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
-    parser (2.3.1.2)
+    parser (2.3.1.4)
       ast (~> 2.2)
-    pkg-config (1.1.7)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -106,11 +105,12 @@ GEM
     pry-byebug (3.4.0)
       byebug (~> 9.0)
       pry (~> 0.10)
+    public_suffix (2.0.3)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rainbow (2.1.0)
-    rake (11.2.2)
+    rake (11.3.0)
     repeater (0.0.1)
     rest-client (2.0.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -120,7 +120,7 @@ GEM
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
-    rspec-core (3.5.3)
+    rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -129,7 +129,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
-    rubocop (0.42.0)
+    rubocop (0.45.0)
       parser (>= 2.3.1.1, < 3.0)
       powerpack (~> 0.1)
       rainbow (>= 1.99.1, < 3.0)
@@ -156,7 +156,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
-    unicode-display_width (1.1.0)
+    unicode-display_width (1.1.1)
     uri_template (0.7.0)
     websocket (1.2.3)
     websocket-driver (0.6.4)

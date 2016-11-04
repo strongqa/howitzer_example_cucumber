@@ -7,93 +7,83 @@ When /^I cancel account on edit account page$/ do
 end
 
 When /^I fill form on edit account page with new password and name$/ do
-  user = @user
-  new_data = @new_data = build(:user)
+  @new_data = build(:user)
   EditAccountPage.on do
     fill_form(
-      user_name: new_data.name,
-      email: user.email,
-      password: new_data.password,
-      password_confirmation: new_data.password_confirmation,
-      current_password: user.password
+      user_name: out(:@new_data).name,
+      email: out(:@user).email,
+      password: out(:@new_data).password,
+      password_confirmation: out(:@new_data).password_confirmation,
+      current_password: out(:@user).password
     )
   end
 end
 
 When /^I fill form on edit account page with incorrect current password$/ do
-  new_data = @new_data = build(:user)
+  @new_data = build(:user)
   EditAccountPage.on do
     fill_form(
-      user_name: new_data.name,
-      email: new_data.email,
-      password: new_data.password,
-      password_confirmation: new_data.password_confirmation,
+      user_name: out(:@new_data).name,
+      email: out(:@new_data).email,
+      password: out(:@new_data).password,
+      password_confirmation: out(:@new_data).password_confirmation,
       current_password: 'incorrect_password'
     )
   end
 end
 
 When /^I fill form on edit account page with incorrect password confirmation$/ do
-  user = @user
-  new_data = @new_data = build(:user)
+  @new_data = build(:user)
   EditAccountPage.on do
     fill_form(
-      user_name: user.name,
-      email: user.email,
-      password: new_data.password,
+      user_name: out(:@user).name,
+      email: out(:@user).email,
+      password: out(:@new_data).password,
       password_confirmation: '',
-      current_password: user.password
+      current_password: out(:@user).password
     )
   end
 end
 
 When /^I fill form on edit account page with short password$/ do
-  user = @user
   EditAccountPage.on do
     fill_form(
-      user_name: user.name,
-      email: user.email,
+      user_name: out(:@user).name,
+      email: out(:@user).email,
       password: '123456',
       password_confirmation: '123456',
-      current_password: user.password
+      current_password: out(:@user).password
     )
   end
 end
 
 When /^I fill form on edit account page with new email$/ do
-  user = @user
-  new_data = @new_data = build(:user)
+  @new_data = build(:user)
   EditAccountPage.on do
     fill_form(
-      user_name: user.name,
-      email:  new_data.email,
-      current_password: user.password
+      user_name: out(:@user).name,
+      email:  out(:@new_data).email,
+      current_password: out(:@user).password
     )
   end
 end
 
 When /^I fill form on edit account page with existing email$/ do
-  user1 = @user1
-  user2 = @user2
   EditAccountPage.on do
     fill_form(
-      user_name: user1.name,
-      email:  user2.email,
-      current_password: user1.password
+      user_name: out(:@user1).name,
+      email:  out(:@user2).email,
+      current_password: out(:@user1).password
     )
   end
 end
 
 When /^I fill form on login page with new password$/ do
-  user = @user
-  new_data = @new_data
-  LoginPage.on { fill_form(email: user.email, password: new_data.password) }
+  LoginPage.on { fill_form(email: out(:@user).email, password: out(:@new_data).password) }
 end
 
 When /^I fill form on login page with new email$/ do
-  user = @user
-  new_data = @new_data
-  LoginPage.on { fill_form(email: new_data.email, password: user.password) }
+  LoginPage.on { fill_form(email: out(:@new_data).email, password: out(:@user).password) }
 end
 
 When /^I confirm account from (.+) email$/ do |email|
@@ -101,8 +91,13 @@ When /^I confirm account from (.+) email$/ do |email|
 end
 
 When /^I fill form on edit account page with incorrect$/ do
-  user = @user
-  EditAccountPage.on { fill_form(user_name: user.name, email: 'test@.ua', current_password: user.password) }
+  EditAccountPage.on do
+    fill_form(
+      user_name: out(:@user).name,
+      email: 'test@.ua',
+      current_password: out(:@user).password
+    )
+  end
 end
 
 ####################################
@@ -110,11 +105,9 @@ end
 ####################################
 
 Then(/^I should see form data on edit account page$/) do
-  user = @user
-  new_data = @new_data
   EditAccountPage.on do
-    expect(form_data).to eq(user_name: new_data.name,
-                            email: user.email,
+    expect(form_data).to eq(user_name: out(:@new_data).name,
+                            email: out(:@user).email,
                             password: '',
                             password_confirmation: '',
                             current_password: '')

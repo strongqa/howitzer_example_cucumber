@@ -25,9 +25,8 @@ Given /^there is registered user2$/ do
 end
 
 Given /^I am logged in as user1$/ do
-  user1 = @user1
   LoginPage.open
-  LoginPage.on { login_as(user1.email, user1.password) }
+  LoginPage.on { login_as(out(:@user1).email, out(:@user1).password) }
 end
 
 Given /^article with parameters$/ do |table|
@@ -39,15 +38,14 @@ Given /^article with parameters$/ do |table|
 end
 
 Given /^I am logged in as admin user$/ do
-  user = create(:user, :admin)
+  @user = create(:user, :admin)
   LoginPage.open
-  LoginPage.on { login_as(user.email, user.password) }
+  LoginPage.on { login_as(out(:@user).email, out(:@user).password) }
 end
 
 Given /^I am logged in as user$/ do
-  user = @user
   LoginPage.open
-  LoginPage.on { login_as(user.email, user.password) }
+  LoginPage.on { login_as(out(:@user).email, out(:@user).password) }
 end
 
 # rubocop:disable Style/SymbolProc
@@ -76,13 +74,11 @@ When /^I click (.+?) menu item on (.+) page$/ do |text, page|
 end
 
 When /^I fill form on login page$/ do
-  user = @user
-  LoginPage.on { fill_form(email: user.email, password: user.password) }
+  LoginPage.on { fill_form(email: out(:@user).email, password: out(:@user).password) }
 end
 
 When /^I fill form on login page with remembering credentials$/ do
-  user = @user
-  LoginPage.on { fill_form(email: user.email, password: user.password, remember_me: 'yes') }
+  LoginPage.on { fill_form(email: out(:@user).email, password: out(:@user).password, remember_me: 'yes') }
 end
 
 When /^I submit form on (.+) page$/ do |page|

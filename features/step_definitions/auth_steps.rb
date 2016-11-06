@@ -90,7 +90,7 @@ When /^I fill form on forgot password page with not email data$/ do
 end
 
 When /^I confirm resetting password from (.+) email$/ do |email|
-  email.as_email_class.find_by_recipient(@user.email).confirm_my_account
+  email.as_email_class.find_by_recipient(@user.email).reset_password
 end
 
 When /^I fill form on login page with blank data$/ do

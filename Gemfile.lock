@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/strongqa/howitzer.git
-  revision: d4933544c365f93644cb8224bf90645ee6948f5c
+  revision: f8f962cd393f6e50b2a34766ab5fc19dcd35aae2
   branch: master
   specs:
     howitzer (2.0.0)
@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: git://github.com/teampoltergeist/poltergeist.git
-  revision: 17364009375f39f3cc750c82ac41f622395b1691
+  revision: 562f1761dec6f6bf106ca60cc9ebcbbbc3bc5e41
   branch: master
   specs:
     poltergeist (1.11.0)
@@ -70,10 +70,10 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
-    faraday (0.9.2)
+    faraday (0.10.0)
       multipart-post (>= 1.2, < 3)
-    faraday_middleware (0.10.0)
-      faraday (>= 0.7.4, < 0.10)
+    faraday_middleware (0.10.1)
+      faraday (>= 0.7.4, < 1.0)
     ffi (1.9.14)
     gherkin (4.0.0)
     gli (2.14.0)
@@ -105,7 +105,7 @@ GEM
     pry-byebug (3.4.0)
       byebug (~> 9.0)
       pry (~> 0.10)
-    public_suffix (2.0.3)
+    public_suffix (2.0.4)
     rack (2.0.1)
     rack-test (0.6.3)
       rack (>= 1.0)

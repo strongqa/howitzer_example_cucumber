@@ -7,6 +7,7 @@ dependencies:
       - wget https://chromedriver.storage.googleapis.com/2.29/chromedriver_linux64.zip
       - unzip chromedriver_linux64.zip
       - sudo cp chromedriver /usr/local/bin/chromedriver
+      - gem install bundler
       - gem update --system
   override:
     - bundle install

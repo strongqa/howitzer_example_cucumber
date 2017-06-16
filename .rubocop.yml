@@ -10,9 +10,6 @@ AllCops:
 
 LineLength:
   Max: 120
-# Remove when config submodule will be updated
-Style/PercentLiteralDelimiters:
-  Enabled: false
 
 Style/CaseIndentation:
   Enabled: false

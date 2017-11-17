@@ -4,11 +4,12 @@ source 'https://rubygems.org'
 # See https://github.com/thoughtbot/capybara-webkit/wiki/Installing-Qt-and-compiling-capybara-webkit
 #
 
+gem 'capybara-webkit', group: :webkit
+
 gem 'howitzer', git: 'https://github.com/strongqa/howitzer.git', branch: 'master'
 # Uncomment it if you are going to use 'poltergeist' driver. PhantomJS should be installed.
 # See https://github.com/jnicklas/capybara#poltergeist
 gem 'capybara-screenshot'
-gem 'capybara-webkit'
 gem 'factory_bot'
 gem 'multi_json'
 gem 'poltergeist', git: 'https://github.com/teampoltergeist/poltergeist.git', branch: :master

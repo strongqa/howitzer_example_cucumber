@@ -64,7 +64,7 @@ end
 
 # we hanlde blank page separately
 # rubocop:disable Style/SymbolProc
-When /^I open (?!blank)(.+?) page$/ do |page|
+When /^I open (.+?) page$/ do |page|
   page.open
 end
 # rubocop:enable Style/SymbolProc
@@ -114,7 +114,7 @@ end
 ####################################
 
 # we hanlde blank page separately
-Then /^(?!blank)(.+) page should be displayed$/ do |page|
+Then /^(.+) page should be displayed$/ do |page|
   expect(page).to be_displayed
 end
 

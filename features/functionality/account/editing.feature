@@ -54,7 +54,7 @@ Feature: Account Editing
     Given there is registered user
     And I am logged in as user
     And I am on edit account page
-    When I fill form on edit account page with incorrect
+    When I fill form on edit account page with incorrect email
     And I submit form on edit account page
     Then edit account page should be displayed
 

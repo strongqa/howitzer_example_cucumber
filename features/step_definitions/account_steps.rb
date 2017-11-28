@@ -90,7 +90,7 @@ When /I confirm account from (.+) email/ do |email|
   email.as_email_class.find_by_recipient(@new_data.email).confirm_my_account
 end
 
-When 'I fill form on edit account page with incorrect' do
+When 'I fill form on edit account page with incorrect email' do
   EditAccountPage.on do
     fill_form(
       user_name: out(:@user).name,

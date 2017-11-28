@@ -93,7 +93,7 @@ When /I click back to articles link on (.+) page/ do |page|
   page.on { back_to_article_list }
 end
 
-When /I click Forgot password\? link on login page/ do
+When 'I click Forgot password? link on login page' do
   LoginPage.on { navigate_to_forgot_password_page }
 end
 
@@ -101,7 +101,7 @@ When /I click on (.+) link on users page/ do |email|
   UsersPage.on { open_user(email) }
 end
 
-When /I log out/ do
+When 'I log out' do
   HomePage.on { main_menu_section.choose_menu('Logout') }
 end
 

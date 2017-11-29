@@ -2,11 +2,11 @@
 #                      ACTIONS                              #
 #############################################################
 
-When /^I cancel account on edit account page$/ do
+When 'I cancel account on edit account page' do
   EditAccountPage.on { cancel_my_account }
 end
 
-When /^I fill form on edit account page with new password and name$/ do
+When 'I fill form on edit account page with new password and name' do
   @new_data = build(:user)
   EditAccountPage.on do
     fill_form(
@@ -19,7 +19,7 @@ When /^I fill form on edit account page with new password and name$/ do
   end
 end
 
-When /^I fill form on edit account page with incorrect current password$/ do
+When 'I fill form on edit account page with incorrect current password' do
   @new_data = build(:user)
   EditAccountPage.on do
     fill_form(
@@ -32,7 +32,7 @@ When /^I fill form on edit account page with incorrect current password$/ do
   end
 end
 
-When /^I fill form on edit account page with incorrect password confirmation$/ do
+When 'I fill form on edit account page with incorrect password confirmation' do
   @new_data = build(:user)
   EditAccountPage.on do
     fill_form(
@@ -45,7 +45,7 @@ When /^I fill form on edit account page with incorrect password confirmation$/ d
   end
 end
 
-When /^I fill form on edit account page with short password$/ do
+When 'I fill form on edit account page with short password' do
   EditAccountPage.on do
     fill_form(
       user_name: out(:@user).name,
@@ -57,7 +57,7 @@ When /^I fill form on edit account page with short password$/ do
   end
 end
 
-When /^I fill form on edit account page with new email$/ do
+When 'I fill form on edit account page with new email' do
   @new_data = build(:user)
   EditAccountPage.on do
     fill_form(
@@ -68,7 +68,7 @@ When /^I fill form on edit account page with new email$/ do
   end
 end
 
-When /^I fill form on edit account page with existing email$/ do
+When 'I fill form on edit account page with existing email' do
   EditAccountPage.on do
     fill_form(
       user_name: out(:@user1).name,
@@ -78,19 +78,19 @@ When /^I fill form on edit account page with existing email$/ do
   end
 end
 
-When /^I fill form on login page with new password$/ do
+When 'I fill form on login page with new password' do
   LoginPage.on { fill_form(email: out(:@user).email, password: out(:@new_data).password) }
 end
 
-When /^I fill form on login page with new email$/ do
+When 'I fill form on login page with new email' do
   LoginPage.on { fill_form(email: out(:@new_data).email, password: out(:@user).password) }
 end
 
-When /^I confirm account from (.+) email$/ do |email|
+When /I confirm account from (.+) email/ do |email|
   email.as_email_class.find_by_recipient(@new_data.email).confirm_my_account
 end
 
-When /^I fill form on edit account page with incorrect$/ do
+When 'I fill form on edit account page with incorrect email' do
   EditAccountPage.on do
     fill_form(
       user_name: out(:@user).name,
@@ -104,7 +104,7 @@ end
 #              CHECKS              #
 ####################################
 
-Then(/^I should see form data on edit account page$/) do
+Then 'I should see form data on edit account page' do
   EditAccountPage.on do
     expect(form_data).to eq(user_name: out(:@new_data).name,
                             email: out(:@user).email,

@@ -18,6 +18,7 @@ gem 'rest-client'
 gem 'spyke'
 
 gem 'cucumber', '~>3.0'
+gem 'cuke_sniffer'
 gem 'syntax'
 
 gem 'pry'

@@ -9,4 +9,8 @@ jobs:
         - checkout
         - run: git submodule update --init
         - run: bundle install --without webkit
+        - run: cuke_sniffer --out html
         - run: bundle exec rake features:smoke
+
+        - store_artifacts:
+            path: ./cuke_sniffer_result.html

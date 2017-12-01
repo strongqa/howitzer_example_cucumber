@@ -3,7 +3,7 @@ When 'I click {word} article button on article page' do |button|
   ArticlePage.on { click_article_button(button) }
 end
 
-When 'I click Edit article button on article list page' do
+When 'I click Edit article on article list page' do
   ArticleListPage.on { edit_article(out(:@article).title) }
 end
 

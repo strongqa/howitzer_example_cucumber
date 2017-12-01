@@ -1,7 +1,7 @@
 Feature: Account Editing
   As a user
   I want to edit my account
-  So I can change my name, password and email
+  So I can change my name or password and email
 
   Scenario: user can edit password and name with correct credentials
     Given there is registered user
@@ -96,7 +96,7 @@ Feature: Account Editing
       """
 
   @p1
-  Scenario: user can not edit account with short password (less then 8 characters)
+  Scenario: user can not edit account with short password (less then eight characters)
     Given there is registered user
     And I am logged in as user
     And I am on edit account page

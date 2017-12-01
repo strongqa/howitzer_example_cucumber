@@ -6,12 +6,6 @@ Given 'opened article {string} page' do |article_title|
   HomePage.on { view_article article_title }
 end
 
-Given /there is comment for article (.*) with parameter:/ do |article, table|
-  step 'there is article with parameters:', Cucumber::Ast::Table.new([[:title, article.title], [:text, article.text]])
-  step 'I fill new comment form on article page with data:', table
-  step 'I submit new comment form on article page'
-end
-
 Given 'there is article' do
   @article = create(:article)
 end
@@ -45,7 +39,7 @@ end
 #                      ACTIONS                              #
 #############################################################
 
-When 'I click new article button on article list page' do
+When 'I click new article on article list page' do
   ArticleListPage.on { add_new_article }
 end
 
@@ -55,10 +49,6 @@ end
 
 When 'I destroy article without confirmation on article list page' do
   ArticleListPage.on { destroy_article(out(:@article).title, false) }
-end
-
-When /I click (.+) article on article list page/ do |article|
-  ArticleListPage.on { open_article(article) }
 end
 
 When 'I fill new comment form on article page' do
@@ -121,10 +111,6 @@ end
 #              CHECKS              #
 ####################################
 
-Then /I see comment displayed on (.*) page/ do |page|
-  page.on { expect(comment_data).to eql(out(:@comment).body) }
-end
-
 Then 'I should see article on article list page' do
   ArticleListPage.on { expect(text).to include(out(:@article).title) }
 end
@@ -163,7 +149,7 @@ Then 'I should see body field on article page' do
   ArticlePage.on { is_expected.to have_comment_field_element }
 end
 
-Then 'I should see buttons: edit article, destroy comment, create comment on article page' do
+Then 'I should see: edit article, destroy comment, create comment on article page' do
   ArticlePage.on do
     is_expected.to have_edit_article_button_element
     is_expected.to have_add_comment_button_element

@@ -9,7 +9,7 @@ jobs:
         - checkout
         - run: git submodule update --init
         - run: bundle install --without webkit
-        - run: cuke_sniffer --out html
+        - run: ruby scripts/cuke_sniffer.rb
         - run: bundle exec rake features:smoke
 
         - store_artifacts:

@@ -19,7 +19,7 @@ end
 
 Cucumber::Rake::Task.new(:features, 'Run all workable scenarios (without @wip and @bug tags)') do |t|
   Howitzer.current_rake_task = t.instance_variable_get :@task_name
-  t.cucumber_opts = "#{opts.call(t.instance_variable_get(:@task_name))} --tags 'not @wip and not @bug'"
+  t.cucumber_opts = "#{opts.call(t.instance_variable_get(:@task_name))} --tags 'not @wip and not @bug and not @visual'"
 end
 
 namespace :features do
@@ -52,6 +52,11 @@ namespace :features do
   Cucumber::Rake::Task.new(:p2, 'Run workable scenarios with low priority (with @p2 tag)') do |t|
     Howitzer.current_rake_task = t.instance_variable_get :@task_name
     t.cucumber_opts = "#{opts.call(t.instance_variable_get(:@task_name))} --tags 'not @wip and not @bug and @p2'"
+  end
+
+  Cucumber::Rake::Task.new(:visual, 'Run visual scenario') do |t|
+    Howitzer.current_rake_task = t.instance_variable_get :@task_name
+    t.cucumber_opts = "#{opts.call(t.instance_variable_get(:@task_name))} --tags '@visual'"
   end
 end
 

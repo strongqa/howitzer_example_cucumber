@@ -10,3 +10,4 @@ jobs:
         - run: git submodule update --init
         - run: bundle install --without webkit
         - run: bundle exec rake features:smoke
+        - run: bundle exec rake features:visual

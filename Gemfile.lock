@@ -1,4 +1,11 @@
 GIT
+  remote: git@github.com:wearefriday/spectre_client.git
+  revision: f2bca77452ba584d342cf877d322928810f4fef7
+  specs:
+    spectre_client (0.1.87)
+      rest-client (~> 2.0)
+
+GIT
   remote: https://github.com/strongqa/howitzer.git
   revision: a017e77ad7262ceacdf88af17bafd7bbd43ebf68
   branch: master
@@ -223,6 +230,7 @@ DEPENDENCIES
   repeater
   rest-client
   rubocop
+  spectre_client!
   spyke
   syntax
 

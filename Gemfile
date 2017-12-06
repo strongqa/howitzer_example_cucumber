@@ -17,6 +17,7 @@ gem 'poltergeist', git: 'https://github.com/teampoltergeist/poltergeist.git', br
 gem 'repeater'
 gem 'rest-client'
 gem 'spyke'
+gem 'spectre_client', git: 'git@github.com:wearefriday/spectre_client.git'
 
 gem 'cucumber', '~>3.0'
 gem 'syntax'

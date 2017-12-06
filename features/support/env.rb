@@ -1,6 +1,7 @@
 require 'cucumber'
 require 'eyes_selenium'
 require 'applitools/capybara'
+require 'spectre_client'
 require_relative '../../config/boot'
 require_relative '../../config/capybara'
 

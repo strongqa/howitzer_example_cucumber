@@ -2,6 +2,7 @@ Before do |scenario|
   Capybara.use_default_driver
   Howitzer::Log.print_feature_name(scenario.feature.name)
   Howitzer::Log.print_scenario_name(scenario.name)
+  @client = SpectreClient::Client.new('Howitzer Example', scenario.name , "https://warm-crag-51125.herokuapp.com/")
   @session_start = CapybaraHelpers.duration(Time.now.utc - Howitzer::Cache.extract(:cloud, :start_time))
 end
 

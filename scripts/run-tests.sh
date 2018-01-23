@@ -14,7 +14,7 @@ then
     sh -e /etc/init.d/xvfb start &
     sleep 3
 fi
-if [[ "$SEXY_SETTINGS" =~ .*appium.*]]
+if [[ "$SEXY_SETTINGS" =~ .*appium.* ]]
 then
     bundle exec cucumber features/functionality/about_blank.feature
 else

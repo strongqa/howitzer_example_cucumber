@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 gem 'appium_capybara'
 
 # Uncomment it if you are going to use 'webkit' driver. QT library should be installed.
@@ -8,7 +7,6 @@ gem 'appium_capybara'
 #
 
 gem 'capybara-webkit', group: :webkit
-
 
 gem 'howitzer', git: 'https://github.com/strongqa/howitzer.git', branch: 'master'
 # Uncomment it if you are going to use 'poltergeist' driver. PhantomJS should be installed.

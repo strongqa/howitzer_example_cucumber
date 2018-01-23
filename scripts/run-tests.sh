@@ -14,9 +14,15 @@ then
     sh -e /etc/init.d/xvfb start &
     sleep 3
 fi
-bundle exec rake rubocop features:smoke
+if [[ "$SEXY_SETTINGS" =~ .*appium.*]]
+then
+    bundle exec cucumber features/functionality/about_blank.feature
+else
+    bundle exec rake rubocop features:smoke
+fi
 shopt -s nocasematch;
 if [[ "$SEXY_SETTINGS" == "" || "$SEXY_SETTINGS" =~ .*phantomjs|poltergeist|headless_chrome|webkit.* ]]
 then
 	bundle exec rake features:bvt features:p1 features:p2
 fi
+

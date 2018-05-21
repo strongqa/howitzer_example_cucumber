@@ -10,8 +10,8 @@ rvm:
 install: bundle install --jobs=3 --retry=3 --with webkit
 
 env:
-  - SEXY_SETTINGS=driver=phantomjs
-  - SEXY_SETTINGS=driver=poltergeist
+  # - SEXY_SETTINGS=driver=phantomjs
+  # - SEXY_SETTINGS=driver=poltergeist
   - SEXY_SETTINGS=driver=headless_chrome
   - SEXY_SETTINGS=driver=webkit
   - secure: "F3fMMbv1oIJuAggnw6pZ1//ihLIupBIES1FT2lXBJQBxv/+d9b4xnb1mHoCKSMn0zcqda64kEHZhiGqGAv1+J97iehjXghcxYntQRGIQShbB5wg4Skzg4jcYYfiw4j7HMW//InHp4tTUCxS6aKSBB1IVSHKRz9/t3KvyX+l4oFIiYR0czyPk2KOvCM72t3f1hjv2Zn+kf0tVoqbniXfow22LKpjMdwA2T/sHpv2uPdwq0irca3r5Yhkxgl9yDaMZnyh5F2as/Y2wbbnxUr0/N71R1sxohNIZJkyTz26Ua+8HBl4qFutYO7wCUE5IZCQ5xaRBPn6MckebIvMYmpSc5okFsoLyse0JKZDWzv2XOi8N8ZW5BbPA2JMUQNbNltWydQf9lrY+fN4EpaKcOHo2yyTQ3V4jTfjOVNPdAQtnB+1xt878+Al9tCh4Nyo0p4cyAUsE6CBFgdqb/dfXsQlXX0baoM1Ryhert2ExnYiNkEiBOfH6g6AkxkXv5upKKyooWIdJ38EB9spYseXMBvz73Anm4K/BkVRUHqPmp1A8KpzWQChKBIxH9KwlbZloysd8IBpaQVULiafs/NoSIDXnEqyjURHQk+W80BbgDJ+7vHvdmuAZHJ0YW9qEwtqf7lSVa6exANlkSm612KFPewms2DEfivnzGdpq3aUDzUqvEIM=" #driver=sauce

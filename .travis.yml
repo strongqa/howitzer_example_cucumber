@@ -4,7 +4,7 @@ sudo: required
 addons:
   chrome: stable
 rvm:
-  - 2.4.0
+  - 2.5.1
 apt:
   sources:
     - ubuntu-sdk-team

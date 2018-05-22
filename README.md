@@ -10,7 +10,7 @@ Howitzer example project based on Cucumber for demo web application http://demoa
 
 ## Requirements
 
-- Ruby 2.4.0
+- Ruby 2.5.1
 - Howitzer 2+
 
 ## Getting Started

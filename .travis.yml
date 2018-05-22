@@ -4,11 +4,20 @@ sudo: required
 addons:
   chrome: stable
 rvm:
-- 2.4.0
+  - 2.5.1
+apt:
+  sources:
+    - ubuntu-sdk-team
+  packages:
+    - qt5-default
+    - libqt5webkit5-dev
+    - gstreamer1.0-plugins-base
+    - gstreamer1.0-tools
+    - gstreamer1.0-x
+
 install: bundle install --jobs=3 --retry=3 --with webkit
 env:
   matrix:
-  - SEXY_SETTINGS=driver=phantomjs
   - SEXY_SETTINGS=driver=poltergeist
   - SEXY_SETTINGS=driver=headless_chrome
   - SEXY_SETTINGS=driver=webkit

@@ -1,5 +1,5 @@
 Feature: Sign Up
-  As a user 
+  As a user
   I want to sign up to the system
   So I can login with a new account
 
@@ -12,7 +12,7 @@ Feature: Sign Up
   @smoke
   Scenario: visitor can initiate sign up
     Given login page of web application
-    When I click sign up menu item on login page
+    When I click sign up link on login page
     Then I should be redirected to sign up page
 
   Scenario: user can sign up with correct credentials

@@ -139,7 +139,7 @@ Then /I should see following text on (.+) page:/ do |page, text|
 end
 
 Then /I should see user email on (.+) page/ do |page|
-  page.on { expect(text).to include(@user.email) }
+  page.on { expect(text).to include(out(:@user).email) }
 end
 
 Then /I should receive (.+) email for (.+) recipient/ do |email, recipient|

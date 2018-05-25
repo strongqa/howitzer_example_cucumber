@@ -10,5 +10,5 @@ Feature: User Viewing
     And users page of web application
 
   Scenario: user is viewing other user on user page
-    When I click on user2 email on users page
+    When I click on user2 name on users page
     Then I should see user2 email text on user view page

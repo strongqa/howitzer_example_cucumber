@@ -2,8 +2,8 @@
 #              ACTIONS             #
 ####################################
 
-When('I click on user2 email on users page') do
-  UsersPage.on { open_user(out(:@user2).email) }
+When('I click on user2 name on users page') do
+  UsersPage.on { open_user(out(:@user2).name) }
 end
 
 ####################################

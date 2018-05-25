@@ -40,30 +40,34 @@ Feature: Sign Up
     Given sign up page of web application
     When I fill form on sign up page with blank data
     And I submit sign up form on sign up page
-    Then I should not be logged in the system
+    # Then I should not be logged in the system
     And I should see following text on sign up page:
     """
-    2 errors prohibited this user from being saved: Email can't be blank Password can't be blank
+    2 errors must be fixed Email can't be blank Password can't be blank
     """
 
   @p1
   Scenario: user can not sign up with incorrect data
     Given sign up page of web application
     When I fill form on sign up page with not email data
-    Then I should not be logged in the system
+    # Then I should not be logged in the system
+    Then I should see following text on sign up page:
+     """
+     1 error must be fixed Email can't be blank
+     """
     When I fill form on sign up page with short password
     And I submit sign up form on sign up page
-    Then I should not be logged in the system
+    # Then I should not be logged in the system
     And I should see following text on sign up page:
      """
-     1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)
+     1 error must be fixed Password is too short (minimum is 8 characters)
      """
     When I fill form on sign up page with different password data
     And I submit sign up form on sign up page
-    Then I should not be logged in the system
+    # Then I should not be logged in the system
     And I should see following text on sign up page:
      """
-     1 error prohibited this user from being saved: Password confirmation doesn't match Password
+     1 error must be fixed Password confirmation doesn't match Password
      """
 
   @p1
@@ -72,8 +76,8 @@ Feature: Sign Up
     And sign up page of web application
     When I fill form on sign up page
     And I submit sign up form on sign up page
-    Then I should not be logged in the system
+    # Then I should not be logged in the system
     And I should see following text on sign up page:
     """
-    1 error prohibited this user from being saved: Email has already been taken
+    1 error must be fixed Email has already been taken
     """

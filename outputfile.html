@@ -24,7 +24,7 @@
 		<!-- BEGIN  header-->
 		<header class="header js-header">
 			<div class="container">
-				<div class="header__nav js-nav" style="transition: all 0.5s;">
+				<div class="header__nav js-nav">
 					<nav class="header__menu menu js-menu">
 						<!-- <a class="menu__link is-active" href="#hero">About</a> -->
 						<a class="menu__link" href="demo.html">Demo</a>
@@ -111,21 +111,17 @@
 			<!-- BEGIN  idea-->
 			<section class="idea">
 				<div class="idea__container">
-					<div class="idea__slider js-idea-slider slick-initialized slick-slider slick-dotted" role="toolbar">
-						<div aria-live="polite" class="slick-list draggable"><div class="slick-track" role="listbox" style="opacity: 1; width: 0px; transform: translate3d(0px, 0px, 0px);"><div class="idea__item slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1" style="width: 0px;">
-							<img class="idea__img" src="img/content/howitzer-screen3.jpg" alt="Idea" />
-						</div><div class="idea__item slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="-1" role="option" aria-describedby="slick-slide00" style="width: 0px;">
+					<div class="idea__slider js-idea-slider">
+						<div class="idea__item">
 							<img class="idea__img" src="img/content/howitzer-screen1.jpg" alt="Idea" />
-						</div><div class="idea__item slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide01" style="width: 0px;">
+						</div>
+						<div class="idea__item">
 							<img class="idea__img" src="img/content/howitzer-screen2.jpg" alt="Idea" />
-						</div><div class="idea__item slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide02" style="width: 0px;">
+						</div>
+						<div class="idea__item">
 							<img class="idea__img" src="img/content/howitzer-screen3.jpg" alt="Idea" />
-						</div><div class="idea__item slick-slide slick-cloned" data-slick-index="3" aria-hidden="true" tabindex="-1" style="width: 0px;">
-							<img class="idea__img" src="img/content/howitzer-screen1.jpg" alt="Idea" />
-						</div></div></div>
-						
-						
-					<ul class="slick-dots" style="display: block;" role="tablist"><li class="slick-active" aria-hidden="false" role="presentation" aria-selected="true" aria-controls="navigation00" id="slick-slide00"><button type="button" data-role="none" role="button" tabindex="0">1</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation01" id="slick-slide01"><button type="button" data-role="none" role="button" tabindex="0">2</button></li><li aria-hidden="true" role="presentation" aria-selected="false" aria-controls="navigation02" id="slick-slide02"><button type="button" data-role="none" role="button" tabindex="0">3</button></li></ul></div>
+						</div>
+					</div>
 					<p class="idea__descr">The framework was built with modern patterns, techniques, and tools in automated testing in order to speed up tests development and simplify support.</p>
 				</div>
 			</section>
@@ -395,8 +391,4 @@
 	</footer>
 	<!-- END footer-->
 
-	<script src="js/app.js"></script>
-
-
-
-</body></html>
+	<script src="js/app.js"></script></body></html>

@@ -126,7 +126,7 @@ Then /I see comment displayed on (.*) page/ do |page|
 end
 
 Then 'I should see article on article list page' do
-  ArticleListPage.on { expect(text).to include(out(:@article).title) }
+  ArticleListPage.on { expect(text).to include(out(:@article).title.upcase) }
 end
 
 Then 'I should not see article on article list page' do

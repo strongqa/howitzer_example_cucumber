@@ -40,8 +40,7 @@ Feature: Sign Up
     Given sign up page of web application
     When I fill form on sign up page with blank data
     And I submit sign up form on sign up page
-    # Then I should not be logged in the system
-    And I should see following text on sign up page:
+    Then I should see following text on sign up page:
     """
     2 errors must be fixed Email can't be blank Password can't be blank
     """
@@ -50,7 +49,6 @@ Feature: Sign Up
   Scenario: user can not sign up with incorrect data
     Given sign up page of web application
     When I fill form on sign up page with not email data
-    # Then I should not be logged in the system
     Then I should see following text on sign up page:
      """
      1 error must be fixed Email can't be blank
@@ -76,7 +74,6 @@ Feature: Sign Up
     And sign up page of web application
     When I fill form on sign up page
     And I submit sign up form on sign up page
-    # Then I should not be logged in the system
     And I should see following text on sign up page:
     """
     1 error must be fixed Email has already been taken

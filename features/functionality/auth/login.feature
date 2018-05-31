@@ -37,7 +37,6 @@ Feature: Log In
     And login page of web application
     When I fill form on login page with blank data
     And I submit form on login page
-    # Then I should not be logged in the system
     And I should see following text on login page:
       """
       Invalid email or password.
@@ -69,7 +68,6 @@ Feature: Log In
     Given sign up page of web application
     When I fill form on sign up page with new data
     And I submit form on sign up page
-    # Then I should not be logged in the system
     Then I should be redirected to home page
     And I should not be logged in the system
     And I should see following text on home page:

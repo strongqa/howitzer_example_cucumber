@@ -150,8 +150,6 @@ end
 
 Then /I should see admin user comment on (.+) page/ do |page|
   page.on do
-    # binding.pry
-    # expect(page.given.text).to include(Howitzer.app_test_user)
     expect(page.given.text).to include(out(:@user).name.upcase)
     expect(page.given.text).to include(out(:@comment).body)
   end

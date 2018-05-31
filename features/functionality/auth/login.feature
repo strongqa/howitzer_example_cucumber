@@ -77,7 +77,6 @@ Feature: Log In
     When I open login page
     And I fill form on login page
     And I submit form on login page
-    # Then I should not be logged in the system
     And I should see following text on login page:
       """
       You have to confirm your account before continuing.

@@ -23,7 +23,6 @@ end
 
 Then /I should see articles parameters on (.+) page/ do |page|
   page.on do
-    # binding.pry
     expect(text).to include(out(:@article1).title.upcase)
     expect(text).to include(out(:@article1).text)
     expect(text).to include(out(:@article2).title.upcase)

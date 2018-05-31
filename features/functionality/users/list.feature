@@ -4,8 +4,6 @@ Feature: Users List
   So I can see Users list
 
   Scenario: user is viewing users in Users list
-    # Given there is registered user
-    # And I am logged in as user
     Given I am logged in as admin user
     When I navigate to users list via main menu
     Then I should see user email signed up on today's date

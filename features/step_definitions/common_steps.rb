@@ -74,11 +74,11 @@ When /I click (.+?) menu item on (.+) page/ do |text, page|
 end
 
 When /I click sign up link on login page/ do
-  LoginPage.on { sign_up_link_element.click }
+  LoginPage.on { navigate_to_signup }
 end
 
 When /I click log in link on signup page/ do
-  SignUpPage.on { log_in_link_element.click }
+  SignUpPage.on { navigate_to_login }
 end
 
 When 'I fill form on login page' do

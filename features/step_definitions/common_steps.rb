@@ -117,6 +117,9 @@ When /I navigate to (.*) list via main menu/ do |item|
   HomePage.on { main_menu_section.choose_menu(item.capitalize) }
 end
 
+When /I am navigating on (.+) page/ do |page|
+  page.open
+end
 ####################################
 #              CHECKS              #
 ####################################

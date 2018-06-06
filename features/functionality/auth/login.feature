@@ -41,6 +41,8 @@ Feature: Log In
       """
       Invalid email or password.
       """
+    And I am navigating on home page
+    Then I should not be logged in the system
 
   @p1
   Scenario: user can not login with incorrect credentials
@@ -52,17 +54,25 @@ Feature: Log In
       """
       Invalid email or password.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
+    And I am navigating on login page
     When I fill form on login page with incorrect password
     And I submit form on login page
     Then I should see following text on login page:
       """
       Invalid email or password.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
+    And I am navigating on login page
     When I fill form on login page with not email data
     Then I should see following text on login page:
       """
       Invalid email or password.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
 
   Scenario: user can not login until confirmation email is not confirmed
     Given sign up page of web application
@@ -74,13 +84,17 @@ Feature: Log In
       """
       A message with a confirmation link has been sent to your email address. Please open the link to activate your account.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
     When I open login page
     And I fill form on login page
     And I submit form on login page
-    And I should see following text on login page:
+    Then I should see following text on login page:
       """
       You have to confirm your account before continuing.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
 
   Scenario: canceled user can not login
     Given there is registered user

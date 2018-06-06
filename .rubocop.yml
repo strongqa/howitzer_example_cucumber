@@ -4,9 +4,7 @@
 AllCops:
   TargetRubyVersion: 2.4
   DisplayCopNames: true
-  Include:
-      - Rakefile
-      - Gemfile
+
 
 LineLength:
   Max: 120

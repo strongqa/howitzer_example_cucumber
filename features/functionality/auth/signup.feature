@@ -44,6 +44,8 @@ Feature: Sign Up
     """
     2 errors must be fixed Email can't be blank Password can't be blank
     """
+    And I am navigating on home page
+    And I should not be logged in the system
 
   @p1
   Scenario: user can not sign up with incorrect data
@@ -53,18 +55,26 @@ Feature: Sign Up
      """
      1 error must be fixed Email can't be blank
      """
+    And I am navigating on home page
+    And I should not be logged in the system
+    And I am navigating on sign up page
     When I fill form on sign up page with short password
     And I submit sign up form on sign up page
     And I should see following text on sign up page:
      """
      1 error must be fixed Password is too short (minimum is 8 characters)
      """
+    And I am navigating on home page
+    And I should not be logged in the system
+    And I am navigating on sign up page
     When I fill form on sign up page with different password data
     And I submit sign up form on sign up page
     Then I should see following text on sign up page:
      """
      1 error must be fixed Password confirmation doesn't match Password
      """
+    And I am navigating on home page
+    And I should not be logged in the system
 
   @p1
   Scenario: user cannot sign up with duplicated email
@@ -76,3 +86,5 @@ Feature: Sign Up
     """
     1 error must be fixed Email has already been taken
     """
+    And I am navigating on home page
+    And I should not be logged in the system

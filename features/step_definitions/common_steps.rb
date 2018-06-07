@@ -120,6 +120,10 @@ end
 When /I am navigating on (.+) page/ do |page|
   page.open
 end
+
+When /I am trying to navigate on (.+) page/ do |page|
+  page.open(validate: false)
+end
 ####################################
 #              CHECKS              #
 ####################################

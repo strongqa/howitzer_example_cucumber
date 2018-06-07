@@ -138,6 +138,7 @@ Then /I should not see comment on (.+) page/ do |page|
 end
 
 Then /I should see user comment on (.+) page/ do |page|
+  # binding.pry
   page.on { expect(text).to include(out(:@comment).body) }
 end
 

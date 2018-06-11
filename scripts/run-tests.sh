@@ -1,5 +1,6 @@
 #!/bin/bash
 set -ev
+rake cuke_sniffer:check
 if [[ "$SEXY_SETTINGS" =~ .*headless_chrome.* ]]
 then
     wget https://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip
@@ -25,4 +26,3 @@ if [[ "$SEXY_SETTINGS" == "" || "$SEXY_SETTINGS" =~ .*phantomjs|poltergeist|head
 then
 	bundle exec rake features:bvt features:p1 features:p2
 fi
-

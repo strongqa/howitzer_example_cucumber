@@ -85,20 +85,12 @@ When /I submit form on (.+) page/ do |page|
   page.on { submit_form }
 end
 
-When /I confirm (.+) account from (.+) email/ do |recipient, email|
-  email.as_email_class.find_by_recipient(recipient).confirm_my_account
-end
-
 When /I click back to articles link on (.+) page/ do |page|
   page.on { back_to_article_list }
 end
 
 When 'I click Forgot password? link on login page' do
   LoginPage.on { navigate_to_forgot_password_page }
-end
-
-When /I click on (.+) link on users page/ do |email|
-  UsersPage.on { open_user(email) }
 end
 
 When 'I log out' do
@@ -132,10 +124,6 @@ end
 
 Then /I should see user email on (.+) page/ do |page|
   page.on { expect(text).to include(@user.email) }
-end
-
-Then /I should receive (.+) email for (.+) recipient/ do |email, recipient|
-  email.as_email_class.find_by_recipient(recipient)
 end
 
 Then /I should be redirected to (.+) page/ do |page|

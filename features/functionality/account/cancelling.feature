@@ -8,9 +8,9 @@ Feature: Account Cancelling
     And I am on login page
     When I fill form on login page
     And I submit form on login page
-    Then I should be logged in the system
+    And I should be logged in the system
     And I should be redirected to home page
-    When I open edit account page
+    And I open edit account page
     And I cancel account on edit account page
     Then I should see following text on home page:
       """

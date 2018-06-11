@@ -27,7 +27,7 @@ Feature: Log In
     When I click logout menu item on home page
     And I click login menu item on home page
     And I should see user email on login page
-    When I submit form on login page
+    And I submit form on login page
     Then I should be logged in the system
     And I should be redirected to home page
 
@@ -44,7 +44,7 @@ Feature: Log In
       """
       
   @p1
-  Scenario: user can not login with incorrect credentials
+  Scenario: user can not login with incorrect email
     Given there is registered user
     And login page of web application
     When I fill form on login page with incorrect email
@@ -53,12 +53,22 @@ Feature: Log In
       """
       Invalid email or password.
       """
+
+  @p1
+  Scenario: user can not login with incorrect password
+    Given there is registered user
+    And login page of web application
     When I fill form on login page with incorrect password
     And I submit form on login page
     Then I should see following text on login page:
       """
       Invalid email or password.
       """
+
+  @p1
+  Scenario: user can not login with not email data
+    Given there is registered user
+    And login page of web application
     When I fill form on login page with not email data
     Then I should see following text on login page:
       """

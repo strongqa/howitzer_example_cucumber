@@ -9,14 +9,14 @@ Feature: Article Editing
     And I am on article list page
 
   Scenario: user can edit article with correct credentials
-    When I click Edit article button on article list page
+    When I click Edit article on article list page
     And I fill form on edit article page with new data
     And I submit form on edit article page
     Then I should see new article parameters on article page
 
   @p1
   Scenario: user can not edit article with blank title
-    When I click Edit article button on article list page
+    When I click Edit article on article list page
     And I fill form on edit article page with blank data
     And I submit form on edit article page
     Then I should see following text on edit article page:
@@ -26,7 +26,7 @@ Feature: Article Editing
 
   @p1
   Scenario: user can not edit article with title is too short
-    When I click Edit article button on article list page
+    When I click Edit article on article list page
     And I fill form on edit article page with short title
     And I submit form on edit article page
     Then I should see following text on edit article page:

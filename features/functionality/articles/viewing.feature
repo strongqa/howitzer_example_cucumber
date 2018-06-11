@@ -14,6 +14,10 @@ Feature: Article Viewing
     And I should see admin user comment on article page
     And I should see add comment form on article page
     And I should see body field on article page
-    And I should see buttons: edit article, destroy comment, create comment on article page
-    When I click back to articles link on article page
+    And I should see: edit article, destroy comment, create comment on article page
+
+
+  Scenario: admin is redirected to article list
+    When I navigate to article on article list page
+    And I click back to articles link on article page
     Then I should be redirected to article list page

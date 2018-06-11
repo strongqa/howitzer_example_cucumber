@@ -19,3 +19,4 @@ build-number.txt
 sauce_connect.log*
 *.*~
 capybara-*.html
+cuke_sniffer_result.html

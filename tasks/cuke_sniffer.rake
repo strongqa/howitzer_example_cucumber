@@ -9,6 +9,7 @@ namespace :cuke_sniffer do
     CukeSniffer::RuleConfig::RULES[:multiple_given_when_then][:enabled] = false
     CukeSniffer::RuleConfig::RULES[:out_of_order_steps][:enabled] = false
     CukeSniffer::RuleConfig::RULES[:too_many_steps][:max] = 15
+    CukeSniffer::RuleConfig::RULES[:hook_no_debugging][:enabled] = false
 
     cuke_sniffer = CukeSniffer::CLI.new(
       project_location: './',

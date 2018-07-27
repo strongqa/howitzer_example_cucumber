@@ -3,7 +3,7 @@
 ####################################
 When 'I open quick start on howitzer frame' do
   HomePage.on do
-    howitzer_home_iframe do |frame| # rubocop:disable Style/SymbolProc
+    howitzer_home_iframe do |frame|
       frame.open_quick_start
     end
   end

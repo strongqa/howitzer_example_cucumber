@@ -6,11 +6,9 @@ Given 'opened browser' do
   Howitzer::Web::BlankPage.instance
 end
 
-# rubocop:disable Style/SymbolProc
 Given /(.+) page of web application/ do |page|
   page.open
 end
-# rubocop:enable Style/SymbolProc
 
 Given 'there is registered user' do
   @user = create(:user)
@@ -48,11 +46,9 @@ Given 'I am logged in as user' do
   LoginPage.on { login_as(out(:@user).email, out(:@user).password) }
 end
 
-# rubocop:disable Style/SymbolProc
 Given /I am on (.+) page/ do |page|
   page.open
 end
-# rubocop:enable Style/SymbolProc
 
 Given 'user logged out' do
   ArticlePage.on { main_menu_section.choose_menu('Logout') }
@@ -63,12 +59,10 @@ end
 ####################################
 
 # we hanlde blank page separately
-# rubocop:disable Style/SymbolProc
 When /^I open (.+?) page$/ do |page|
   page.open
 end
-# rubocop:enable Style/SymbolProc
-#
+
 When /I click (.+?) menu item on (.+) page/ do |text, page|
   page.on { main_menu_section.choose_menu(text.capitalize) }
 end
@@ -117,7 +111,9 @@ When /I navigate to (.*) list via main menu/ do |item|
   HomePage.on { main_menu_section.choose_menu(item.capitalize) }
 end
 
-When /I am navigating on (.+) page/, &:open
+When /I am navigating on (.+) page/ do |page|
+  page.open
+end
 
 When /I am trying to navigate on (.+) page/ do |page|
   page.open(validate: false)

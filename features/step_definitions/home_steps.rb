@@ -3,6 +3,7 @@
 ####################################
 When 'I open quick start on howitzer frame' do
   HomePage.on do
+    current_window.resize_to(1920, 1080)
     howitzer_home_iframe do |frame|
       frame.open_quick_start
     end

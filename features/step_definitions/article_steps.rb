@@ -126,7 +126,7 @@ Then /I see comment displayed on (.*) page/ do |page|
 end
 
 Then 'I should see article on article list page' do
-  ArticleListPage.on { expect(text).to include(out(:@article).title) }
+  ArticleListPage.on { expect(text).to include(out(:@article).title.upcase) }
 end
 
 Then 'I should not see article on article list page' do
@@ -138,6 +138,7 @@ Then /I should not see comment on (.+) page/ do |page|
 end
 
 Then /I should see user comment on (.+) page/ do |page|
+  # binding.pry
   page.on { expect(text).to include(out(:@comment).body) }
 end
 
@@ -150,7 +151,7 @@ end
 
 Then /I should see admin user comment on (.+) page/ do |page|
   page.on do
-    expect(page.given.text).to include(Howitzer.app_test_user)
+    expect(page.given.text).to include(out(:@user).name.upcase)
     expect(page.given.text).to include(out(:@comment).body)
   end
 end

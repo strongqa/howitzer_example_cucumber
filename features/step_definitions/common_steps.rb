@@ -6,11 +6,9 @@ Given 'opened browser' do
   Howitzer::Web::BlankPage.instance
 end
 
-# rubocop:disable Style/SymbolProc
 Given /(.+) page of web application/ do |page|
   page.open
 end
-# rubocop:enable Style/SymbolProc
 
 Given 'there is registered user' do
   @user = create(:user)
@@ -48,11 +46,9 @@ Given 'I am logged in as user' do
   LoginPage.on { login_as(out(:@user).email, out(:@user).password) }
 end
 
-# rubocop:disable Style/SymbolProc
 Given /I am on (.+) page/ do |page|
   page.open
 end
-# rubocop:enable Style/SymbolProc
 
 Given 'user logged out' do
   ArticlePage.on { main_menu_section.choose_menu('Logout') }
@@ -63,14 +59,20 @@ end
 ####################################
 
 # we hanlde blank page separately
-# rubocop:disable Style/SymbolProc
 When /^I open (.+?) page$/ do |page|
   page.open
 end
-# rubocop:enable Style/SymbolProc
 
 When /I click (.+?) menu item on (.+) page/ do |text, page|
   page.on { main_menu_section.choose_menu(text.capitalize) }
+end
+
+When /I click sign up link on login page/ do
+  LoginPage.on { navigate_to_signup }
+end
+
+When /I click log in link on signup page/ do
+  SignUpPage.on { navigate_to_login }
 end
 
 When 'I fill form on login page' do
@@ -109,6 +111,13 @@ When /I navigate to (.*) list via main menu/ do |item|
   HomePage.on { main_menu_section.choose_menu(item.capitalize) }
 end
 
+When /I am navigating on (.+) page/ do |page|
+  page.open
+end
+
+When /I am trying to navigate on (.+) page/ do |page|
+  page.open(validate: false)
+end
 ####################################
 #              CHECKS              #
 ####################################
@@ -131,7 +140,7 @@ Then /I should see following text on (.+) page:/ do |page, text|
 end
 
 Then /I should see user email on (.+) page/ do |page|
-  page.on { expect(text).to include(@user.email) }
+  page.on { expect(text).to include(out(:@user).email) }
 end
 
 Then /I should receive (.+) email for (.+) recipient/ do |email, recipient|

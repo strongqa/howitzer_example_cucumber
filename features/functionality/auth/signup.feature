@@ -1,5 +1,5 @@
 Feature: Sign Up
-  As a user 
+  As a user
   I want to sign up to the system
   So I can login with a new account
 
@@ -12,7 +12,7 @@ Feature: Sign Up
   @smoke
   Scenario: visitor can initiate sign up
     Given login page of web application
-    When I click sign up menu item on login page
+    When I click sign up link on login page
     Then I should be redirected to sign up page
 
   Scenario: user can sign up with correct credentials
@@ -40,31 +40,41 @@ Feature: Sign Up
     Given sign up page of web application
     When I fill form on sign up page with blank data
     And I submit sign up form on sign up page
-    Then I should not be logged in the system
-    And I should see following text on sign up page:
+    Then I should see following text on sign up page:
     """
-    2 errors prohibited this user from being saved: Email can't be blank Password can't be blank
+    2 errors must be fixed Email can't be blank Password can't be blank
     """
+    And I am navigating on home page
+    And I should not be logged in the system
 
   @p1
   Scenario: user can not sign up with incorrect data
     Given sign up page of web application
     When I fill form on sign up page with not email data
-    Then I should not be logged in the system
+    Then I should see following text on sign up page:
+     """
+     1 error must be fixed Email can't be blank
+     """
+    And I am navigating on home page
+    And I should not be logged in the system
+    And I am navigating on sign up page
     When I fill form on sign up page with short password
     And I submit sign up form on sign up page
-    Then I should not be logged in the system
     And I should see following text on sign up page:
      """
-     1 error prohibited this user from being saved: Password is too short (minimum is 8 characters)
+     1 error must be fixed Password is too short (minimum is 8 characters)
      """
+    And I am navigating on home page
+    And I should not be logged in the system
+    And I am navigating on sign up page
     When I fill form on sign up page with different password data
     And I submit sign up form on sign up page
-    Then I should not be logged in the system
-    And I should see following text on sign up page:
+    Then I should see following text on sign up page:
      """
-     1 error prohibited this user from being saved: Password confirmation doesn't match Password
+     1 error must be fixed Password confirmation doesn't match Password
      """
+    And I am navigating on home page
+    And I should not be logged in the system
 
   @p1
   Scenario: user cannot sign up with duplicated email
@@ -72,8 +82,9 @@ Feature: Sign Up
     And sign up page of web application
     When I fill form on sign up page
     And I submit sign up form on sign up page
-    Then I should not be logged in the system
     And I should see following text on sign up page:
     """
-    1 error prohibited this user from being saved: Email has already been taken
+    1 error must be fixed Email has already been taken
     """
+    And I am navigating on home page
+    And I should not be logged in the system

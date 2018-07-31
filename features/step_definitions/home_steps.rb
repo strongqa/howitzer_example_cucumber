@@ -3,15 +3,19 @@
 ####################################
 When 'I open quick start on howitzer frame' do
   HomePage.on do
-    howitzer_home_iframe(&:open_quick_start)
+    current_window.resize_to(1920, 1080)
+    howitzer_home_iframe do |frame|
+      frame.open_quick_start
+    end
   end
 end
 
 ####################################
 #              CHECKS              #
 ####################################
-Then 'I should see today form on home page with article data' do
-  HomePage.on { expect(find_form_text('Today')).to include(out(:@article).title) }
+
+Then 'I should see article group on home page with article data' do
+  HomePage.on { expect(find_article_group_text(1)).to include(out(:@article).title.upcase) }
 end
 
 Then 'I should see install section on howitzer frame' do

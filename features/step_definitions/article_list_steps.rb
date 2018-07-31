@@ -9,23 +9,23 @@ end
 
 Then /I should see article parameters on (.+) page/ do |page|
   page.on do
-    expect(text).to include(out(:@article).title)
+    expect(text).to include(out(:@article).title.upcase)
     expect(text).to include(out(:@article).text)
   end
 end
 
 Then /I should see new article parameters on (.+) page/ do |page|
   page.on do
-    expect(text).to include(out(:@new_article).title)
+    expect(text).to include(out(:@new_article).title.upcase)
     expect(text).to include(out(:@new_article).text)
   end
 end
 
 Then /I should see articles parameters on (.+) page/ do |page|
   page.on do
-    expect(text).to include(out(:@article1).title)
+    expect(text).to include(out(:@article1).title.upcase)
     expect(text).to include(out(:@article1).text)
-    expect(text).to include(out(:@article2).title)
+    expect(text).to include(out(:@article2).title.upcase)
     expect(text).to include(out(:@article2).text)
   end
 end

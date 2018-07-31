@@ -1,5 +1,5 @@
 Feature: Log In
-  As a user 
+  As a user
   I want to use my credentials to login the system
   So I can login the system
 
@@ -37,12 +37,13 @@ Feature: Log In
     And login page of web application
     When I fill form on login page with blank data
     And I submit form on login page
-    Then I should not be logged in the system
     And I should see following text on login page:
       """
       Invalid email or password.
       """
-      
+    And I am navigating on home page
+    Then I should not be logged in the system
+
   @p1
   Scenario: user can not login with incorrect credentials
     Given there is registered user
@@ -53,36 +54,47 @@ Feature: Log In
       """
       Invalid email or password.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
+    And I am navigating on login page
     When I fill form on login page with incorrect password
     And I submit form on login page
     Then I should see following text on login page:
       """
       Invalid email or password.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
+    And I am navigating on login page
     When I fill form on login page with not email data
     Then I should see following text on login page:
       """
       Invalid email or password.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
 
   Scenario: user can not login until confirmation email is not confirmed
     Given sign up page of web application
     When I fill form on sign up page with new data
     And I submit form on sign up page
-    Then I should not be logged in the system
-    And I should be redirected to home page
+    Then I should be redirected to home page
+    And I should not be logged in the system
     And I should see following text on home page:
       """
       A message with a confirmation link has been sent to your email address. Please open the link to activate your account.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
     When I open login page
     And I fill form on login page
     And I submit form on login page
-    Then I should not be logged in the system
-    And I should see following text on login page:
+    Then I should see following text on login page:
       """
       You have to confirm your account before continuing.
       """
+    And I am navigating on home page
+    And I should not be logged in the system
 
   Scenario: canceled user can not login
     Given there is registered user

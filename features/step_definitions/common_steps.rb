@@ -135,8 +135,8 @@ Then 'I should not be logged in the system' do
   expect(HomePage).to be_not_authenticated
 end
 
-Then /I should see following text on (.+) page:/ do |page, text|
-  page.on { expect(text).to include(text) }
+Then /I should see following text on (.+) page:/ do |page, message|
+  page.on { expect(text).to include(message) }
 end
 
 Then /I should see user email on (.+) page/ do |page|

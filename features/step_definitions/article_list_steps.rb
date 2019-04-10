@@ -1,4 +1,3 @@
-
 When 'I click {word} article button on article page' do |button|
   ArticlePage.on { click_article_button(button) }
 end

@@ -62,7 +62,7 @@ When 'I fill form on edit account page with new email' do
   EditAccountPage.on do
     fill_form(
       user_name: out(:@user).name,
-      email:  out(:@new_data).email,
+      email: out(:@new_data).email,
       current_password: out(:@user).password
     )
   end
@@ -72,7 +72,7 @@ When 'I fill form on edit account page with existing email' do
   EditAccountPage.on do
     fill_form(
       user_name: out(:@user1).name,
-      email:  out(:@user2).email,
+      email: out(:@user2).email,
       current_password: out(:@user1).password
     )
   end

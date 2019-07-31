@@ -1,6 +1,12 @@
 language: ruby
 dist: trusty
 sudo: required
+
+# Bundler and ruby caching
+cache:
+ - bundler
+ - directories:
+   - "/home/travis/.rvm/"
 addons:
   chrome: stable
 rvm:

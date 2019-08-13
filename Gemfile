@@ -14,7 +14,7 @@ gem 'howitzer', git: 'https://github.com/strongqa/howitzer.git', branch: 'master
 gem 'capybara-screenshot'
 gem 'factory_bot'
 gem 'multi_json'
-gem 'poltergeist', '1.17.0' # https://github.com/teampoltergeist/poltergeist/issues/927
+gem 'poltergeist'
 gem 'repeater'
 gem 'rest-client'
 gem 'spyke'
@@ -25,3 +25,4 @@ gem 'syntax'
 gem 'pry'
 gem 'pry-byebug'
 gem 'rubocop'
+gem 'travis'

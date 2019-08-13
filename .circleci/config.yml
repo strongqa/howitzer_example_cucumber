@@ -8,12 +8,14 @@ jobs:
       steps:
         - checkout
         - run: git submodule update --init
+        - run: sudo apt-get update
+        - run: sudo apt-get install g++ qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
     # Restore bundle cache
         - type: cache-restore
           key: example-cucumber-{{ checksum "Gemfile.lock" }}
 
         # Bundle install dependencies
-        - run: bundle install --path vendor/bundle --without webkit
+        - run: bundle install --path vendor/bundle
 
         # Store bundle cache
         - type: cache-save

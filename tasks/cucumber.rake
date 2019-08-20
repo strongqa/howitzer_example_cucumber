@@ -38,12 +38,6 @@ namespace :features do
     t.cucumber_opts = "#{opts.call(t.instance_variable_get(:@task_name))} --tags '@smoke and not @wip and not @bug'"
   end
 
-  Cucumber::Rake::Task.new(:smoke_exc, 'Run workable smoke scenarios without exceptional cases') do |t|
-    Howitzer.current_rake_task = t.instance_variable_get :@task_name
-    t.cucumber_opts = "#{opts.call(t.instance_variable_get(:@task_name))}
-    --tags '@smoke and not @wip and not @bug and not @exception'"
-  end
-
   Cucumber::Rake::Task.new(:bvt, 'Run workable build verification test scenarios') do |t|
     Howitzer.current_rake_task = t.instance_variable_get :@task_name
     t.cucumber_opts = "#{opts.call(t.instance_variable_get(:@task_name))}

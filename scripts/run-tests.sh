@@ -16,9 +16,6 @@ fi
 if [[ "$SEXY_SETTINGS" =~ .*appium.* ]]
 then
     bundle exec cucumber features/functionality/about_blank.feature
-elif [[ "$SEXY_SETTINGS" =~ .*poltergeist.* ]]
-then
-    bundle exec rake rubocop features:smoke_exc
 else
     bundle exec rake rubocop features:smoke
 fi

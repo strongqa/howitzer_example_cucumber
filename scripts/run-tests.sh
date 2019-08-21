@@ -24,4 +24,3 @@ if [[ "$SEXY_SETTINGS" == "" || "$SEXY_SETTINGS" =~ .*poltergeist|headless_chrom
 then
 	bundle exec rake features:bvt features:p1 features:p2
 fi
-

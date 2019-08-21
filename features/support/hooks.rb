@@ -5,6 +5,10 @@ Before do |scenario|
   @session_start = CapybaraHelpers.duration(Time.now.utc - Howitzer::Cache.extract(:cloud, :start_time))
 end
 
+Before('@no_poltergeist') do
+  skip_this_scenario if Howitzer.driver == 'poltergeist'
+end
+
 After do |scenario|
   if CapybaraHelpers.cloud_driver?
     Howitzer::Cache.store(:cloud, :status, false) if scenario.failed?

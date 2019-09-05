@@ -20,6 +20,7 @@ Feature: Article list
     Then I should be redirected to search page
     And I should see article on search page
 
+  @wip
   Scenario: user can see and open recently created articles in right sidebar of Article list
     When I open article list page
     Then I should see created article in recent post on article list page

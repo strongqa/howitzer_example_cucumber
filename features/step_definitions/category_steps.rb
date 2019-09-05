@@ -29,6 +29,7 @@ end
 
 When 'I click delete button near nedded category on categories list page' do
   CategoriesListPage.on { delete_category(out(:@category).name) }
+  Capybara.current_session.driver.browser.switch_to.alert.accept
 end
 
 When 'I update name of category on edit category page' do

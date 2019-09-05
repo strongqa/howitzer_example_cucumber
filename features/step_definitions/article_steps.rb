@@ -13,15 +13,15 @@ Given /there is comment for article (.*) with parameter:/ do |article, table|
 end
 
 Given 'there is article' do
-  @article = create(:article)
+  @article = create(:article, category: create(:category, :default))
 end
 
 Given 'there is article1' do
-  @article = create(:article)
+  @article = create(:article, category: create(:category, :default))
 end
 
 Given 'there is article2' do
-  @article2 = create(:article)
+  @article2 = create(:article, category: create(:category, :default))
 end
 
 Given 'there is article1 with special category' do

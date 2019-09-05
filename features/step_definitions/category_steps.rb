@@ -28,8 +28,14 @@ When 'I click edit button near nedded category on categories list page' do
 end
 
 When 'I click delete button near nedded category on categories list page' do
-  CategoriesListPage.on { delete_category(out(:@category).name) }
-  Capybara.current_session.driver.browser.switch_to.alert.accept
+  CategoriesListPage.on do
+    delete_category(out(:@category).name)
+    if Howitzer.driver == 'webkit'
+        driver.browser.accept_js_confirms
+      else
+        Capybara.current_session.accept_alert
+    end
+  end
 end
 
 When 'I update name of category on edit category page' do

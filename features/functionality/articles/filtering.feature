@@ -18,4 +18,4 @@ Feature: Filtering
     And I log out on categories page
     And I am logged in as admin user
     And I am navigating on categories list page
-    And I click delete button near nedded category on categories list page
+    And I click delete button near the necessary category on categories list page

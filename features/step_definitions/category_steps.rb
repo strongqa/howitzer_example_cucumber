@@ -18,16 +18,16 @@ When 'I click new category button on categories list page' do
   CategoriesListPage.on { add_new_category }
 end
 
-When 'I crete new category on new category page' do
+When 'I create new category on new category page' do
   @category = build(:category)
   NewCategoryPage.on { create_category(out(:@category).name) }
 end
 
-When 'I click edit button near nedded category on categories list page' do
+When 'I click edit button near the necessary category on categories list page' do
   CategoriesListPage.on { edit_category(out(:@category).name) }
 end
 
-When 'I click delete button near nedded category on categories list page' do
+When 'I click delete button near the necessary category on categories list page' do
   CategoriesListPage.on do
     delete_category(out(:@category).name)
     if Howitzer.driver == 'webkit'

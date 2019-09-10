@@ -6,7 +6,7 @@ When 'I click Edit article button on article list page' do
   ArticleListPage.on { edit_article(out(:@article).title) }
 end
 
-When 'I search necessary article in right sidebar on article list page' do
+When 'I search the necessary article in right sidebar on article list page' do
   ArticleListPage.on { search_article(out(:@article).title) }
 end
 

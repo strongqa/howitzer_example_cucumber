@@ -13,7 +13,7 @@ Feature: Account Editing
     """
     You updated your account successfully.
     """
-    When I log out
+    When I log out on home page
     Then I should not be logged in the system
     When I open login page
     And I fill form on login page with new password
@@ -38,7 +38,7 @@ Feature: Account Editing
       """
       Your account was successfully confirmed.
       """
-    When I log out
+    When I log out on home page
     Then I should not be logged in the system
     When I open login page
     And I fill form on login page with new email

@@ -6,6 +6,14 @@ When 'I click Edit article button on article list page' do
   ArticleListPage.on { edit_article(out(:@article).title) }
 end
 
+When 'I search the necessary article in right sidebar on article list page' do
+  ArticleListPage.on { search_article(out(:@article).title) }
+end
+
+When 'I click on category in right sidebar on article list page' do
+  ArticleListPage.on { open_category_item(out(:@category).name) }
+end
+
 Then /I should see article parameters on (.+) page/ do |page|
   page.on do
     expect(text).to include(out(:@article).title.upcase)
@@ -22,9 +30,32 @@ end
 
 Then /I should see articles parameters on (.+) page/ do |page|
   page.on do
-    expect(text).to include(out(:@article1).title.upcase)
-    expect(text).to include(out(:@article1).text)
+    expect(text).to include(out(:@article).title.upcase)
+    expect(text).to include(out(:@article).text)
     expect(text).to include(out(:@article2).title.upcase)
     expect(text).to include(out(:@article2).text)
   end
+end
+
+Then /I should see article on search page/ do
+  SearchPage.on { is_expected.to have_article_element(out(:@article).title) }
+end
+
+Then /I should see two articles on categories page/ do
+  CategoriesPage.on do
+    is_expected.to have_article_element(out(:@article).title)
+    is_expected.to have_article_element(out(:@article2).title)
+  end
+end
+
+Then /I should see category of created articles in right sidebar on article list page/ do
+  ArticleListPage.on { is_expected.to have_category_item_element(out(:@category).name) }
+end
+
+Then /I should see created article in recent post on article list page/ do
+  ArticleListPage.on { is_expected.to have_recent_post_element(out(:@article).title) }
+end
+
+Then /I click on article in recent post on article list page/ do
+  ArticleListPage.on { open_recent_post(out(:@article).title) }
 end

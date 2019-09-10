@@ -13,15 +13,24 @@ Given /there is comment for article (.*) with parameter:/ do |article, table|
 end
 
 Given 'there is article' do
-  @article = create(:article)
+  @article = create(:article, category: create(:category, :default))
 end
 
 Given 'there is article1' do
-  @article1 = create(:article)
+  @article = create(:article, category: create(:category, :default))
 end
 
 Given 'there is article2' do
-  @article2 = create(:article)
+  @article2 = create(:article, category: create(:category, :default))
+end
+
+Given 'there is article1 with special category' do
+  @category = create(:category)
+  @article = create(:article, category: @category)
+end
+
+Given 'there is article2 with special category' do
+  @article2 = create(:article, category: @category)
 end
 
 Given 'there is comment for article' do
@@ -90,6 +99,11 @@ end
 When 'I fill form on new article page' do
   @article = build(:article)
   NewArticlePage.on { fill_form(title: out(:@article).title, text: out(:@article).text) }
+end
+
+When 'I fill form for second article on new article page' do
+  @article2 = build(:article)
+  NewArticlePage.on { fill_form(title: out(:@article2).title, text: out(:@article2).text) }
 end
 
 When 'I fill form on new article page with blank data' do

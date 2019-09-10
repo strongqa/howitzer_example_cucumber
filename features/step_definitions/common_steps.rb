@@ -103,8 +103,8 @@ When /I click on (.+) link on users page/ do |email|
   UsersPage.on { open_user(email) }
 end
 
-When 'I log out' do
-  HomePage.on { main_menu_section.choose_menu('Logout') }
+When /I log out on (.+) page/ do |page|
+  page.on { main_menu_section.choose_menu('Logout') }
 end
 
 When /I navigate to (.*) list via main menu/ do |item|

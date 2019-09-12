@@ -19,7 +19,7 @@ gem 'repeater'
 gem 'rest-client'
 gem 'spyke'
 
-gem 'cucumber', '~>3.0'
+gem 'cucumber'
 gem 'syntax'
 
 gem 'pry'

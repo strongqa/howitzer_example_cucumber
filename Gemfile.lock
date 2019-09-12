@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/strongqa/howitzer.git
-  revision: fb4d57932e1589cca5254fffc2ac2e57c6e74477
+  revision: eccc93c053c198b3460e71ee008ec89d0ae3d762
   branch: master
   specs:
     howitzer (2.1.1)
@@ -27,16 +27,16 @@ GEM
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
-    addressable (2.6.0)
-      public_suffix (>= 2.0.2, < 4.0)
+    addressable (2.7.0)
+      public_suffix (>= 2.0.2, < 5.0)
     appium_capybara (1.4.1)
       appium_lib (>= 9.6.0)
       capybara (~> 2.7)
-    appium_lib (10.4.0)
+    appium_lib (10.4.1)
       appium_lib_core (~> 3.2)
       nokogiri (~> 1.8, >= 1.8.1)
       tomlrb (~> 1.1)
-    appium_lib_core (3.2.1)
+    appium_lib_core (3.2.2)
       faye-websocket (~> 0.10.0)
       selenium-webdriver (~> 3.14, >= 3.14.1)
     ast (2.4.0)
@@ -56,7 +56,7 @@ GEM
     capybara-webkit (1.15.1)
       capybara (>= 2.3, < 4.0)
       json
-    childprocess (1.0.1)
+    childprocess (2.0.0)
       rake (< 13.0)
     cliver (0.3.2)
     coderay (1.1.2)
@@ -103,13 +103,14 @@ GEM
       net-http-persistent (>= 2.7)
       net-http-pipeline
     gherkin (5.1.0)
-    gli (2.18.1)
+    gli (2.19.0)
     gmail (0.7.1)
       gmail_xoauth (>= 0.3.0)
       mail (>= 2.2.1)
     gmail_xoauth (0.4.2)
       oauth (>= 0.3.6)
     highline (1.7.10)
+    http-accept (1.7.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     i18n (1.6.0)
@@ -122,9 +123,9 @@ GEM
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     method_source (0.9.2)
-    mime-types (3.2.2)
+    mime-types (3.3)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2019.0331)
+    mime-types-data (3.2019.0904)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
@@ -135,11 +136,11 @@ GEM
       connection_pool (~> 2.2)
     net-http-pipeline (1.0.1)
     netrc (0.11.0)
-    nokogiri (1.10.3)
+    nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     oauth (0.5.4)
     parallel (1.17.0)
-    parser (2.6.3.0)
+    parser (2.6.4.1)
       ast (~> 2.4.0)
     poltergeist (1.18.1)
       capybara (>= 2.1, < 4)
@@ -151,7 +152,7 @@ GEM
     pry-byebug (3.7.0)
       byebug (~> 11.0)
       pry (~> 0.10)
-    public_suffix (3.1.1)
+    public_suffix (4.0.1)
     pusher-client (0.6.2)
       json
       websocket (~> 1.0)
@@ -161,7 +162,8 @@ GEM
     rainbow (3.0.0)
     rake (12.3.3)
     repeater (0.0.1)
-    rest-client (2.0.2)
+    rest-client (2.1.0)
+      http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
@@ -188,9 +190,9 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
-    rubyzip (1.2.3)
-    selenium-webdriver (3.142.3)
-      childprocess (>= 0.5, < 2.0)
+    rubyzip (1.2.4)
+    selenium-webdriver (3.142.4)
+      childprocess (>= 0.5, < 3.0)
       rubyzip (~> 1.2, >= 1.2.2)
     sexy_settings (0.1.0)
     spyke (5.3.4)
@@ -233,7 +235,7 @@ DEPENDENCIES
   appium_capybara
   capybara-screenshot
   capybara-webkit
-  cucumber (~> 3.0)
+  cucumber
   factory_bot
   howitzer!
   multi_json

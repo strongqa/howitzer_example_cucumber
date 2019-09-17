@@ -2,10 +2,14 @@
 set -ev
 if [[ "$SEXY_SETTINGS" =~ .*headless_chrome.* ]]
 then
-    wget https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip
+    wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
     sudo cp chromedriver /usr/local/bin/chromedriver
     sleep 3
+    curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    sudo dpkg -i google-chrome.deb
+    sudo sed -i ‘s|HERE/chrome"|HERE/chrome" --disable-setuid-sandbox|g’ /opt/google/chrome/google-chrome
+    rm google-chrome.deb
 fi
 if [[ "$SEXY_SETTINGS" =~ .*headless_firefox.* ]]
 then

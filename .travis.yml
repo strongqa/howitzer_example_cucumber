@@ -9,6 +9,7 @@ cache:
    - "/home/travis/.rvm/"
 addons:
   chrome: stable
+  firefox: latest
 rvm:
   - 2.6.2
 apt:
@@ -40,4 +41,6 @@ env:
     #SEXY_SETTINGS=driver=crossbrowsertesting,mailgun_api_key=secret,mailgun_key=secret,cloud_auth_login=secret,cloud_auth_pass=secret
     - secure: "hO4sR2WaRx8B6kkI3V9PtoxnaQlZu9ryoRDwO5MyZHZEjsSCatKKjeT0tYiJakiUGDmrOBD0pipzohw6Xmgc0AGMs1LnQJDNvBQS1my7n5uk/C0vM/Yzt599kfTYFnxapHPGxjqM4pnO9Z0Tc29hclFXcCfUf6WNUE6q6n54MddWU1bTfAONE/xOJtXcuKVnJKsRg1V3lvKlBWuiiCIX1WVoxiArFsU27/VPZqwk/7SJksTcNmzs3ayBtsqc00SF3PKJvbZF/vJ3VVA63ofZJejIUCDkyJzennJDE/oeEPtIgbMnK9BrBKeOO0Y0i+gGCERNitbjzv2mGZvCJro6rtJn+0OtqIkuRYb+JtS6Fw7mZqeANLLrEvexbCxnsOM/s7kIK5LIPD27HUJe9q5xBQjjTTDxwdD1gfX1OyrdC+kr/BRVRnpIIzQwwCceurOCrAavr16optJMF/+84te3Of+8HfsHzLFwkOz/C86Vx0Q+nDwhVGviGjjncXEc0loZ2iKcyl+ws4qL2iO+t9LCTZyjDTBsVYCtWNO6js/AuYRLsB8/a2BMvCdrzHi/+nVM735y092nCSF+/J4QP4JRJLJUSfu6h29BEVOndukFDqKlXdDmU32BxqtmDTcJHZYhekVIT8xEazvBWD6JTwuzA+6PZ08jhaqt1x/G2l0cU68="
     #SEXY_SETTINGS=driver=apium,appium_url=secret
+    - secure: "nyfF5GUYE2rO+dpo5En5WZ7OEwsnnT+fWbGOy92AbzsQCj8GInGFVsPVC2oMRhDV+2m5PUeFMfuFNdwfihy9miwuaqjdYbJMrLp4O3VWbiyyB2u91NOgNHLZ8fYHVKsvoY8cxEQ0XOEyklHiIumkdU0J6J5pTBq3mUDWCvutz3LwMvXTdXeFnRGZrLP6NOwmU0nB1miy311/xTGSPp3L2ivnRIUEFjmANKCH/howulM0v/FNOi5gi0JkzzeLoyR7vSehfuXplXs1b2+uIREfmQaN9tu8JSUJYfOamg2dOEGQa4qerSS4axsNoiI7+exwVVUTlleqwGWb6j05r4HyxmojyVh8wHKyXE4gxYi59eDA0SohdFG8K7J2nv75T9J2M0BHgwidKH1UDdhfeB/eZ8bdfXm408t8KTip+xk+50uJD1ofNxf8J6nIw3r9cUlUB6RxaRclHMOvse0n/F5hbOY0Wa09GQRDPKhDRcvOZh2ThT5AKlXVVHG3hluvughrzWLZjadUXW2i/s6ToIYGMfRdZM0tHt1XcZQPYG/Vw+sUKsM7/cqgUJ2rsjWk1SI1ydegfIlJkQeb48zEExPy+BIgO2Oe7WeSUxzMaJya4JDDh+y8jnuoHFcsZKutnyfGUN49RQBUxpBeZf0zOvXHAnJ4zBxx7cbtecLWTcGZO1g="
+    #SEXY_SETTINGS=driver=headless_firefox,mailgun_api_key=secret,mailgun_key=secret
 script: "./scripts/run-tests.sh"

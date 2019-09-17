@@ -2,6 +2,7 @@
 set -ev
 if [[ "$SEXY_SETTINGS" =~ .*headless_chrome.* ]]
 then
+    sudo apt-get install dpkg -y
     wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
     sudo cp chromedriver /usr/local/bin/chromedriver

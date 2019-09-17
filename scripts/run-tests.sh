@@ -2,14 +2,10 @@
 set -ev
 if [[ "$SEXY_SETTINGS" =~ .*headless_chrome.* ]]
 then
-    wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+    wget https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
     sudo cp chromedriver /usr/local/bin/chromedriver
     sleep 3
-    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub 9 | sudo apt-key add -
-    sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ 6 stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-    sudo apt-get update
-    sudo apt-get install google-chrome-stable
 fi
 if [[ "$SEXY_SETTINGS" =~ .*headless_firefox.* ]]
 then

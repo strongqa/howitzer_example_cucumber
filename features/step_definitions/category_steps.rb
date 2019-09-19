@@ -28,12 +28,14 @@ When 'I click edit button near the necessary category on categories list page' d
 end
 
 When 'I click delete button near the necessary category on categories list page' do
+  Selenium::WebDriver.logger.level = :error
   CategoriesListPage.on do
     delete_category(out(:@category).name)
     if Howitzer.driver == 'webkit'
       driver.browser.accept_js_confirms
     else
       Capybara.current_session.accept_alert
+      sleep 2
     end
   end
 end

@@ -54,5 +54,5 @@ Then /^I should see created category on categories list page$/ do
 end
 
 Then /^I should not see category on categories list page$/ do
-  CategoriesListPage.on { is_expected.to have_no_category_item_element(out(:@category).name)}
+  CategoriesListPage.on { is_expected.to have_no_category_item_element(out(:@category).name) }
 end

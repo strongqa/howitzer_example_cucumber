@@ -1,5 +1,22 @@
 #!/bin/bash
 set -ev
+TURNIP_STATE=("started")
+RSPEC_STATE=("started")
+while [[ " ${TURNIP_STATE[*]} " == *"started"* ]] || [[ " ${RSPEC_STATE[*]} " == *"started"* ]]; do
+        sleep 5
+        TURNIP_STATE=$(curl -s -X GET \
+       -H "Content-Type: application/json" \
+       -H "Accept: application/json" \
+       -H "Travis-API-Version: 3" \
+       -H "Authorization: token ${QA_TOKEN}" \
+       https://api.travis-ci.org/repo/${TURNIP_SLUG}/builds | jq -r '[.builds[].state]' )
+        RSPEC_STATE=$(curl -s -X GET \
+       -H "Content-Type: application/json" \
+       -H "Accept: application/json" \
+       -H "Travis-API-Version: 3" \
+       -H "Authorization: token ${QA_TOKEN}" \
+       https://api.travis-ci.org/repo/${RSPEC_SLUG}/builds | jq -r '[.builds[].state]' )
+done
 if [[ "$SEXY_SETTINGS" =~ .*headless_chrome.* ]]
 then
     wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip

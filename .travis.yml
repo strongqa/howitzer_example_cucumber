@@ -23,12 +23,12 @@ apt:
     - gstreamer1.0-x
 
 before_install:
+  - sudo apt-get install jq
   - sudo apt-get update -qq
   - sudo apt-get install -y -qq postfix
   - sudo apt-get install -y dpkg
   - sudo apt-get --only-upgrade install google-chrome-stable
   - google-chrome --version
-  - sudo apt-get install jq
 
 install: bundle install --jobs=3 --retry=3 --with webkit
 env:

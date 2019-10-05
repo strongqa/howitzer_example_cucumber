@@ -23,6 +23,7 @@ apt:
     - gstreamer1.0-x
 
 before_install:
+  - sudo apt-get install jq
   - sudo apt-get update -qq
   - sudo apt-get install -y -qq postfix
   - sudo apt-get install -y dpkg

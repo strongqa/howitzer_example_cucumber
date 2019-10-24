@@ -19,7 +19,7 @@ while [[ " ${TURNIP_STATE[*]} " == *"started"* ]] || [[ " ${RSPEC_STATE[*]} " ==
 done
 if [[ "$SEXY_SETTINGS" =~ .*headless_chrome.* ]]
 then
-    wget https://chromedriver.storage.googleapis.com/2.38/chromedriver_linux64.zip
+    wget https://chromedriver.storage.googleapis.com/77.0.3865.40/chromedriver_linux64.zip
     unzip chromedriver_linux64.zip
     sudo cp chromedriver /usr/local/bin/chromedriver
     sleep 3

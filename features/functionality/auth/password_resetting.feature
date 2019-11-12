@@ -11,7 +11,6 @@ Feature: Password Resetting
     And I submit form on forgot password page
     Then I should see following text on login page:
       """
-      ×
       You will receive an email with instructions on how to reset your password in a few minutes.
       """
     And I should receive reset password confirmation email
@@ -20,7 +19,6 @@ Feature: Password Resetting
     And I submit form on change password page
     Then I should see following text on home page:
       """
-      ×
       Your password was changed successfully. You are now signed in.
       """
     And I should be logged in the system
@@ -34,7 +32,6 @@ Feature: Password Resetting
     And I submit form on forgot password page
     Then I should see following text on login page:
       """
-      ×
       You will receive an email with instructions on how to reset your password in a few minutes.
       """
     And I should receive reset password confirmation email
@@ -43,7 +40,6 @@ Feature: Password Resetting
     And I submit form on change password page
     Then I should see following text on change password page:
       """
-      ×
       1 error must be fixed
       Password confirmation doesn't match Password
       """
@@ -51,7 +47,6 @@ Feature: Password Resetting
     And I submit form on change password page
     Then I should see following text on change password page:
       """
-      ×
       1 error must be fixed
       Password is too short (minimum is 8 characters)
       """
@@ -64,7 +59,6 @@ Feature: Password Resetting
     And I submit form on forgot password page
     Then I should see following text on forgot password page:
       """
-      ×
       1 error must be fixed
       Email not found
       """
@@ -80,7 +74,6 @@ Feature: Password Resetting
     And I submit form on forgot password page
     Then I should see following text on login page:
       """
-      ×
       You will receive an email with instructions on how to reset your password in a few minutes.
       """
     When I fill form on login page

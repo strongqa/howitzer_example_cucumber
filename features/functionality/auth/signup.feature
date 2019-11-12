@@ -21,7 +21,6 @@ Feature: Sign Up
     And I submit sign up form on sign up page
     Then I should see following text on home page:
       """
-      ×
       A message with a confirmation link has been sent to your email address. Please open the link to activate your account.
       """
     And I should not be logged in the system
@@ -29,7 +28,6 @@ Feature: Sign Up
     When I confirm sing up from confirmation instruction email
     Then I should see following text on login page:
       """
-      ×
       Your account was successfully confirmed.
       """
     When I fill form on login page
@@ -44,7 +42,6 @@ Feature: Sign Up
     And I submit sign up form on sign up page
     Then I should see following text on sign up page:
     """
-    ×
     2 errors must be fixed
     Email can't be blank
     Password can't be blank
@@ -59,7 +56,6 @@ Feature: Sign Up
     And I submit sign up form on sign up page
     Then I should see following text on sign up page:
      """
-     ×
      1 error must be fixed
      Email can't be blank
      """
@@ -70,7 +66,6 @@ Feature: Sign Up
     And I submit sign up form on sign up page
     And I should see following text on sign up page:
      """
-     ×
      1 error must be fixed
      Password is too short (minimum is 8 characters)
      """
@@ -81,7 +76,6 @@ Feature: Sign Up
     And I submit sign up form on sign up page
     Then I should see following text on sign up page:
      """
-     ×
      1 error must be fixed
      Password confirmation doesn't match Password
      """
@@ -96,7 +90,6 @@ Feature: Sign Up
     And I submit sign up form on sign up page
     And I should see following text on sign up page:
       """
-      ×
       1 error must be fixed
       Email has already been taken
       """

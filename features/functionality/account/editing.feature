@@ -11,7 +11,6 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on home page:
     """
-    ×
     You updated your account successfully.
     """
     When I log out on home page
@@ -32,13 +31,11 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on home page:
       """
-      ×
       You updated your account successfully, but we need to verify your new email address. Please check your email and click on the confirm link to finalize confirming your new email address.
       """
     When I confirm account from confirmation instruction email
     Then I should see following text on home page:
       """
-      ×
       Your account was successfully confirmed.
       """
     When I log out on home page
@@ -48,7 +45,6 @@ Feature: Account Editing
     And I submit form on login page
     Then I should see following text on home page:
       """
-      ×
       Signed in successfully.
       """
     And I should be logged in the system
@@ -73,7 +69,6 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on edit account page:
       """
-      ×
       1 error must be fixed
       Email has already been taken
       """
@@ -87,7 +82,6 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on edit account page:
       """
-      ×
       1 error must be fixed
       Current password is invalid
       """
@@ -101,7 +95,6 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on edit account page:
       """
-      ×
       1 error must be fixed
       Password confirmation doesn't match Password
       """
@@ -115,7 +108,6 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on edit account page:
       """
-      ×
       1 error must be fixed
       Password is too short (minimum is 8 characters)
       """

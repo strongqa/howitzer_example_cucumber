@@ -39,7 +39,6 @@ Feature: Log In
     And I submit form on login page
     And I should see following text on login page:
       """
-      ×
       Invalid email or password.
       """
     And I am navigating on home page
@@ -53,7 +52,6 @@ Feature: Log In
     And I submit form on login page
     Then I should see following text on login page:
       """
-      ×
       Invalid email or password.
       """
     And I am navigating on home page
@@ -63,7 +61,6 @@ Feature: Log In
     And I submit form on login page
     Then I should see following text on login page:
       """
-      ×
       Invalid email or password.
       """
     And I am navigating on home page
@@ -75,7 +72,6 @@ Feature: Log In
     And I submit form on sign up page
     Then I should see following text on home page:
       """
-      ×
       A message with a confirmation link has been sent to your email address. Please open the link to activate your account.
       """
     And I should be redirected to home page
@@ -87,7 +83,6 @@ Feature: Log In
     And I submit form on login page
     Then I should see following text on login page:
       """
-      ×
       You have to confirm your account before continuing.
       """
     And I am navigating on home page
@@ -104,7 +99,6 @@ Feature: Log In
     And I cancel account on edit account page
     Then I should see following text on home page:
     """
-    ×
     Bye! Your account was successfully cancelled. We hope to see you again soon.
     """
     When I click login menu item on home page
@@ -113,6 +107,5 @@ Feature: Log In
     And I submit form on login page
     Then I should see following text on login page:
     """
-    ×
     Invalid email or password.
     """

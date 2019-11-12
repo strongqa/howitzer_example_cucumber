@@ -11,17 +11,19 @@ Feature: Password Resetting
     And I submit form on forgot password page
     Then I should see following text on login page:
       """
+      ×
       You will receive an email with instructions on how to reset your password in a few minutes.
       """
     And I should receive reset password confirmation email
     When I confirm resetting password from reset password confirmation email
     And I fill form on change password page
     And I submit form on change password page
-    Then I should be logged in the system
-    And I should see following text on home page:
+    Then I should see following text on home page:
       """
+      ×
       Your password was changed successfully. You are now signed in.
       """
+    And I should be logged in the system
 
   @p1
   Scenario: user can not reset password with incorrect new password
@@ -31,23 +33,28 @@ Feature: Password Resetting
     And I fill form on forgot password page
     And I submit form on forgot password page
     Then I should see following text on login page:
-    """
-    You will receive an email with instructions on how to reset your password in a few minutes.
-    """
+      """
+      ×
+      You will receive an email with instructions on how to reset your password in a few minutes.
+      """
     And I should receive reset password confirmation email
     When I confirm resetting password from reset password confirmation email
     And I fill form on change password page with different data
     And I submit form on change password page
     Then I should see following text on change password page:
-    """
-    1 error prohibited this user from being saved: Password confirmation doesn't match Password
-    """
+      """
+      ×
+      1 error must be fixed
+      Password confirmation doesn't match Password
+      """
     And I fill form on change password page with short password
     And I submit form on change password page
     Then I should see following text on change password page:
-    """
-    Password is too short (minimum is 8 characters)
-    """
+      """
+      ×
+      1 error must be fixed
+      Password is too short (minimum is 8 characters)
+      """
 
   @p1
   Scenario: user can not reset password with incorrect email
@@ -57,6 +64,8 @@ Feature: Password Resetting
     And I submit form on forgot password page
     Then I should see following text on forgot password page:
       """
+      ×
+      1 error must be fixed
       Email not found
       """
     And I fill form on forgot password page with not email data
@@ -71,6 +80,7 @@ Feature: Password Resetting
     And I submit form on forgot password page
     Then I should see following text on login page:
       """
+      ×
       You will receive an email with instructions on how to reset your password in a few minutes.
       """
     When I fill form on login page

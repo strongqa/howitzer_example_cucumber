@@ -14,5 +14,6 @@ Feature: Account Cancelling
     And I cancel account on edit account page
     Then I should see following text on home page:
       """
+      ×
       Bye! Your account was successfully cancelled. We hope to see you again soon.
       """

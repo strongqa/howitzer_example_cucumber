@@ -4,6 +4,7 @@
 
 Given 'there is category' do
   @category = create(:category)
+  Howitzer::Cache.store(:teardown, :category, @category)
 end
 
 When 'I navigate to categories list page' do
@@ -21,6 +22,7 @@ end
 When 'I create new category on new category page' do
   @category = build(:category)
   NewCategoryPage.on { create_category(out(:@category).name) }
+  Howitzer::Cache.store(:teardown, :category, @category)
 end
 
 When 'I click edit button near the necessary category on categories list page' do

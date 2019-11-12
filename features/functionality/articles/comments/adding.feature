@@ -14,6 +14,7 @@ Feature: Article Comment Adding
     And I submit new comment form on article page
     Then I should see following text on article page:
       """
+      ×
       Comment was successfully added to current article.
       """
     And I should see user comment on article page
@@ -24,5 +25,6 @@ Feature: Article Comment Adding
     And I submit new comment form on article page
     Then I should see following text on article page:
       """
+      ×
       Body can't be blank
       """

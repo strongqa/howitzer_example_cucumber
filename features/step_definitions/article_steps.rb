@@ -14,6 +14,7 @@ end
 
 Given 'there is article' do
   @article = create(:article, category: create(:category, :default))
+  Howitzer::Cache.store(:teardown, :article, @article)
 end
 
 Given 'there is article1' do
@@ -31,6 +32,7 @@ end
 
 Given 'there is article2 with special category' do
   @article2 = create(:article, category: @category)
+  Howitzer::Cache.store(:teardown, :category, @category)
 end
 
 Given 'there is comment for article' do
@@ -118,6 +120,7 @@ end
 When 'I fill form on edit article page with new data' do
   @new_article = build(:article)
   EditArticlePage.on { fill_form(title: out(:@new_article).title, text: out(:@new_article).text) }
+  @article = @new_article
 end
 
 When 'I fill form on edit article page with blank data' do

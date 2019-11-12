@@ -19,6 +19,45 @@ After do |scenario|
     Howitzer::Log.info 'IE reset session'
     Capybara.current_session.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
   end
+
+  test_teardown = Howitzer::Cache.extract(:teardown)
+  if test_teardown.key? :category
+    begin
+      unless @user.is_admin
+        HomePage.open
+        HomePage.on { main_menu_section.choose_menu('Logout') }
+        LoginPage.open
+        @user = create(:user, :admin)
+        LoginPage.on { login_as(out(:@user).email, out(:@user).password) }
+      end
+      CategoriesListPage.on do
+        delete_category(out(:@category).name)
+        if Howitzer.driver == 'webkit'
+          driver.browser.accept_js_confirms
+        else
+          Capybara.current_session.accept_alert
+          sleep 2
+        end
+      end
+    rescue StandardError => e
+      puts e
+    end
+  elsif test_teardown.key? :article
+    begin
+      unless @user.is_admin
+        HomePage.open
+        HomePage.on { main_menu_section.choose_menu('Logout') }
+        LoginPage.open
+        @user = create(:user, :admin)
+        LoginPage.on { login_as(out(:@user).email, out(:@user).password) }
+      end
+      ArticleListPage.open
+      ArticleListPage.on { destroy_article(out(:@article).title, true) }
+    rescue StandardError => e
+      puts e
+    end
+  end
+
   Howitzer::Cache.clear_all_ns
   Capybara.reset_sessions!
 end

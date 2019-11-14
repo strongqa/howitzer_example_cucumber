@@ -40,15 +40,13 @@ Feature: Password Resetting
     And I submit form on change password page
     Then I should see following text on change password page:
       """
-      1 error must be fixed
-      Password confirmation doesn't match Password
+      1 error must be fixed Password confirmation doesn't match Password
       """
     And I fill form on change password page with short password
     And I submit form on change password page
     Then I should see following text on change password page:
       """
-      1 error must be fixed
-      Password is too short (minimum is 8 characters)
+      1 error must be fixed Password is too short (minimum is 8 characters)
       """
 
   @p1
@@ -59,8 +57,7 @@ Feature: Password Resetting
     And I submit form on forgot password page
     Then I should see following text on forgot password page:
       """
-      1 error must be fixed
-      Email not found
+      1 error must be fixed Email not found
       """
     And I fill form on forgot password page with not email data
     And I submit form on forgot password page

@@ -69,8 +69,7 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on edit account page:
       """
-      1 error must be fixed
-      Email has already been taken
+      1 error must be fixed Email has already been taken
       """
 
   @p1
@@ -82,8 +81,7 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on edit account page:
       """
-      1 error must be fixed
-      Current password is invalid
+      1 error must be fixed Current password is invalid
       """
 
   @p1
@@ -95,8 +93,7 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on edit account page:
       """
-      1 error must be fixed
-      Password confirmation doesn't match Password
+      1 error must be fixed Password confirmation doesn't match Password
       """
 
   @p1
@@ -108,6 +105,5 @@ Feature: Account Editing
     And I submit form on edit account page
     Then I should see following text on edit account page:
       """
-      1 error must be fixed
-      Password is too short (minimum is 8 characters)
+      1 error must be fixed Password is too short (minimum is 8 characters)
       """

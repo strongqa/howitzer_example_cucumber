@@ -2,37 +2,40 @@
 # To see all cops used see here: https://github.com/bbatsov/rubocop/blob/master/config/enabled.yml
 
 AllCops:
-  TargetRubyVersion: 2.4
   DisplayCopNames: true
+  TargetRubyVersion: 2.4
 
-
-LineLength:
-  Max: 120
+Documentation:
+  Enabled: false
 
 Layout/CaseIndentation:
   Enabled: false
 
-Style/EmptyElse:
+LineLength:
+  Max: 120
+
+Lint/AmbiguousBlockAssociation:
   Enabled: false
 
 Lint/AmbiguousRegexpLiteral:
   Enabled: false
 
-Style/CaseEquality:
-  Enabled: false
-
-Documentation:
-  Enabled: false
-
-Style/FrozenStringLiteralComment:
+Metrics/BlockLength:
   Enabled: false
 
 Metrics/ModuleLength:
   Max: 150
 
-Metrics/BlockLength:
+Style/CaseEquality:
+  Enabled: false
+
+Style/EmptyElse:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/SymbolProc:
   Exclude:
     - 'features/step_definitions/**/*.rb'
+  

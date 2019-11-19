@@ -12,7 +12,6 @@ end
 
 Given 'there is registered user' do
   @user = create(:user)
-  Howitzer::Cache.store(:teardown, :user, @user)
 end
 
 Given 'there is registered user1' do
@@ -40,7 +39,6 @@ Given 'I am logged in as admin user' do
   @user = create(:user, :admin)
   LoginPage.open
   LoginPage.on { login_as(out(:@user).email, out(:@user).password) }
-  Howitzer::Cache.store(:teardown, :user, @user)
 end
 
 Given 'I am logged in as user' do

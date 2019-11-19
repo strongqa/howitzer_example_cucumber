@@ -14,15 +14,17 @@ end
 
 Given 'there is article' do
   @article = create(:article, category: create(:category, :default))
-  Howitzer::Cache.store(:teardown, :article, @article)
+  Howitzer::Cache.store(:teardown, :article, @article.id)
 end
 
 Given 'there is article1' do
   @article = create(:article, category: create(:category, :default))
+  Howitzer::Cache.store(:teardown, :article, @article.id)
 end
 
 Given 'there is article2' do
   @article2 = create(:article, category: create(:category, :default))
+  Howitzer::Cache.store(:teardown, :article2, @article2.id)
 end
 
 Given 'there is article1 with special category' do
@@ -32,7 +34,7 @@ end
 
 Given 'there is article2 with special category' do
   @article2 = create(:article, category: @category)
-  Howitzer::Cache.store(:teardown, :category, @category)
+  Howitzer::Cache.store(:teardown, :category, @category.id)
 end
 
 Given 'there is comment for article' do

@@ -15,7 +15,4 @@ Feature: Filtering
     When I click on category in right sidebar on article list page
     Then I should be redirected to categories page
     And I should see two articles on categories page
-    And I log out on categories page
-    And I am logged in as admin user
-    And I am navigating on categories list page
-    And I click delete button near the necessary category on categories list page
+

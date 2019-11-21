@@ -38,3 +38,4 @@ Style/FrozenStringLiteralComment:
 Style/SymbolProc:
   Exclude:
     - 'features/step_definitions/**/*.rb'
+  

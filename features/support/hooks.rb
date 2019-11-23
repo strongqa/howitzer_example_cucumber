@@ -21,12 +21,8 @@ After do |scenario|
   end
 
   test_teardown = Howitzer::Cache.extract(:teardown)
-  begin
-    @category.destroy if test_teardown.key? :category
-    @article.destroy if test_teardown.key? :article
-    @article2.destroy if test_teardown.key? :article2
-  rescue StandardError => e
-    puts e
+  test_teardown.keys.each do |key|
+    instance_variable_get("@#{key}")&.destroy
   end
 
   Howitzer::Cache.clear_all_ns

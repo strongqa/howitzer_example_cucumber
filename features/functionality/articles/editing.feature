@@ -21,7 +21,7 @@ Feature: Article Editing
     And I submit form on edit article page
     Then I should see following text on edit article page:
       """
-      2 errors prohibited this article from being saved: Title can't be blank Title is too short (minimum is 5 characters)
+      1 ERROR PROHIBITED THIS ARTICLE FROM BEING SAVED: Title can't be blank
       """
 
   @p1
@@ -31,5 +31,5 @@ Feature: Article Editing
     And I submit form on edit article page
     Then I should see following text on edit article page:
       """
-      1 error prohibited this article from being saved: Title is too short (minimum is 5 characters)
+      1 ERROR PROHIBITED THIS ARTICLE FROM BEING SAVED: Title is too short (minimum is 5 characters)
       """

@@ -19,6 +19,12 @@ After do |scenario|
     Howitzer::Log.info 'IE reset session'
     Capybara.current_session.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
   end
+
+  test_teardown = Howitzer::Cache.extract(:teardown)
+  test_teardown.keys.each do |key|
+    instance_variable_get("@#{key}")&.destroy
+  end
+
   Howitzer::Cache.clear_all_ns
   Capybara.reset_sessions!
 end

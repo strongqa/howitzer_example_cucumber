@@ -29,10 +29,10 @@ When 'I fill form on sign up page with blank data' do
   SignUpPage.on { fill_form }
 end
 
-When 'I fill form on sign up page with not email data' do
+When 'I fill form on sign up page with blank email field' do
   @user = build(:user)
   SignUpPage.on do
-    fill_form(email: 'test.123456789',
+    fill_form(email: '',
               password: out(:@user).password,
               password_confirmation: out(:@user).password_confirmation)
   end

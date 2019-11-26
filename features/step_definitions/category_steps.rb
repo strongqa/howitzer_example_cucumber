@@ -4,6 +4,7 @@
 
 Given 'there is category' do
   @category = create(:category)
+  Howitzer::Cache.store(:teardown, :category, @category.id)
 end
 
 When 'I navigate to categories list page' do
@@ -21,13 +22,14 @@ end
 When 'I create new category on new category page' do
   @category = build(:category)
   NewCategoryPage.on { create_category(out(:@category).name) }
+  Howitzer::Cache.store(:teardown, :category, @category.id)
 end
 
 When 'I click edit button near the necessary category on categories list page' do
   CategoriesListPage.on { edit_category(out(:@category).name) }
 end
 
-When 'I click delete button near the necessary category on categories list page' do
+When 'I delete category' do
   Selenium::WebDriver.logger.level = :error
   CategoriesListPage.on do
     delete_category(out(:@category).name)
@@ -53,6 +55,6 @@ Then /^I should see created category on categories list page$/ do
   CategoriesListPage.on { is_expected.to have_category_item_element(out(:@category).name) }
 end
 
-Then /^I should not see category on categories list page$/ do
+Then /^I should not see the category$/ do
   CategoriesListPage.on { is_expected.to have_no_category_item_element(out(:@category).name) }
 end

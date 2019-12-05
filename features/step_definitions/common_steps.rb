@@ -136,7 +136,7 @@ Then 'I should not be logged in the system' do
 end
 
 Then /I should see following text on (.+) page:/ do |page, text|
-  page.on { expect(alert_text.gsub(/×\s+/, '').gsub(/\s+/, ' ')).to eql(text) }
+  page.on { expect(sanitized_alert_text).to eql(text) }
 end
 
 Then /I should see user email on (.+) page/ do |page|

@@ -40,13 +40,13 @@ Feature: Password Resetting
     And I submit form on change password page
     Then I should see following text on change password page:
       """
-      1 error must be fixed Password confirmation doesn't match Password
+      1 ERROR PROHIBITED THIS USER FROM BEING SAVED: Password confirmation doesn't match Password
       """
     And I fill form on change password page with short password
     And I submit form on change password page
     Then I should see following text on change password page:
       """
-      1 error must be fixed Password is too short (minimum is 8 characters)
+      1 ERROR PROHIBITED THIS USER FROM BEING SAVED: Password is too short (minimum is 8 characters)
       """
 
   @p1

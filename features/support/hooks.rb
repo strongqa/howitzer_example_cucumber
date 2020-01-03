@@ -6,7 +6,7 @@ Before do |scenario|
 end
 
 Before('@no_poltergeist') do
-  skip_this_scenario if Howitzer.driver == 'poltergeist'
+  skip_this_scenario if %w[poltergeist webkit].include?(Howitzer.driver)
 end
 
 After do |scenario|

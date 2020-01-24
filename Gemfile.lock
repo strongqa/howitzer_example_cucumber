@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: https://github.com/strongqa/howitzer.git
-  revision: 7b0c115f833c76eef972f673a6e729230f7910e9
-  branch: master
+  revision: f180247fb40fd02b013717d3bae184d6d05b58d5
+  branch: feature/frame_fix
   specs:
     howitzer (2.2.0)
       activesupport (~> 5.0)
@@ -178,15 +178,15 @@ GEM
       rspec-core (~> 3.9.0)
       rspec-expectations (~> 3.9.0)
       rspec-mocks (~> 3.9.0)
-    rspec-core (3.9.0)
-      rspec-support (~> 3.9.0)
+    rspec-core (3.9.1)
+      rspec-support (~> 3.9.1)
     rspec-expectations (3.9.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.0)
+    rspec-mocks (3.9.1)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
-    rspec-support (3.9.0)
+    rspec-support (3.9.2)
     rspec-wait (0.0.9)
       rspec (>= 3, < 4)
     rubocop (0.75.1)

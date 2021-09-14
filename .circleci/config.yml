@@ -15,6 +15,7 @@ jobs:
           key: example-cucumber-{{ checksum "Gemfile.lock" }}
 
         # Bundle install dependencies
+        - run: gem install bundler:2.2.22
         - run: bundle install --path vendor/bundle
 
         # Store bundle cache

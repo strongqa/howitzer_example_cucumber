@@ -1,12 +1,14 @@
 Before do |scenario|
   Capybara.use_default_driver
-  Howitzer::Log.print_feature_name(scenario.feature.name)
+  feature_name = \
+    if Cucumber::VERSION.first.to_i > 3
+      File.read(scenario.location.file)[/Feature:\s(.+)/, 1]
+    else
+      scenario.feature.name
+    end
+  Howitzer::Log.print_feature_name(feature_name)
   Howitzer::Log.print_scenario_name(scenario.name)
   @session_start = CapybaraHelpers.duration(Time.now.utc - Howitzer::Cache.extract(:cloud, :start_time))
-end
-
-Before('@no_poltergeist') do
-  skip_this_scenario if %w[poltergeist webkit].include?(Howitzer.driver)
 end
 
 After do |scenario|
@@ -14,14 +16,14 @@ After do |scenario|
     Howitzer::Cache.store(:cloud, :status, false) if scenario.failed?
     session_end = CapybaraHelpers.duration(Time.now.utc - Howitzer::Cache.extract(:cloud, :start_time))
     Howitzer::Log.info "CLOUD VIDEO #{@session_start} - #{session_end}" \
-             " URL: #{CapybaraHelpers.cloud_resource_path(:video)}"
+                       " URL: #{CapybaraHelpers.cloud_resource_path(:video)}"
   elsif CapybaraHelpers.ie_browser?
     Howitzer::Log.info 'IE reset session'
     Capybara.current_session.execute_script("void(document.execCommand('ClearAuthenticationCache', false));")
   end
 
   test_teardown = Howitzer::Cache.extract(:teardown)
-  test_teardown.keys.each do |key|
+  test_teardown.each_key do |key|
     instance_variable_get("@#{key}")&.destroy
   end
 

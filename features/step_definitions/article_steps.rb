@@ -63,11 +63,11 @@ When 'I click new article button on article list page' do
 end
 
 When 'I destroy article with confirmation on article list page' do
-  ArticleListPage.on { destroy_article(out(:@article).title, true) }
+  ArticleListPage.on { destroy_article(out(:@article).title, confirmation: true) }
 end
 
 When 'I destroy article without confirmation on article list page' do
-  ArticleListPage.on { destroy_article(out(:@article).title, false) }
+  ArticleListPage.on { destroy_article(out(:@article).title, confirmation: false) }
 end
 
 When /I click (.+) article on article list page/ do |article|
@@ -88,11 +88,11 @@ When 'I submit new comment form on article page' do
 end
 
 When 'I destroy comment with confirmation on article page' do
-  ArticlePage.on { destroy_comment(out(:@comment).body, true) }
+  ArticlePage.on { destroy_comment(out(:@comment).body, confirmation: true) }
 end
 
 When 'I destroy comment without confirmation on article page' do
-  ArticlePage.on { destroy_comment(out(:@comment).body, false) }
+  ArticlePage.on { destroy_comment(out(:@comment).body, confirmation: false) }
 end
 
 When 'I navigate to article on article list page' do
@@ -106,7 +106,10 @@ When 'I fill form on new article page' do
 end
 
 When 'I fill form for second article on new article page' do
-  @article2 = build(:article)
+  build(:article).tap do |a|
+    @article2.title = a.title
+    @article2.text = a.text
+  end
   NewArticlePage.on { fill_form(title: out(:@article2).title, text: out(:@article2).text) }
 end
 
@@ -120,9 +123,11 @@ When 'I fill form on new article page with short title' do
 end
 
 When 'I fill form on edit article page with new data' do
-  @new_article = build(:article)
-  EditArticlePage.on { fill_form(title: out(:@new_article).title, text: out(:@new_article).text) }
-  @article = @new_article
+  build(:article).tap do |a|
+    @article.title = a.title
+    @article.text = a.text
+  end
+  EditArticlePage.on { fill_form(title: out(:@article).title, text: out(:@article).text) }
 end
 
 When 'I fill form on edit article page with blank data' do
@@ -186,6 +191,6 @@ Then 'I should see buttons: edit article, destroy comment, create comment on art
   ArticlePage.on do
     is_expected.to have_edit_article_button_element
     is_expected.to have_add_comment_button_element
-    is_expected.to have_destroy_comment_element(out(:@comment).body)
+    is_expected.to have_destroy_comment_element
   end
 end

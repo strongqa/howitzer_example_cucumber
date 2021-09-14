@@ -4,12 +4,12 @@ jobs:
     build:
       working_directory: ~/howitzer_example
       docker:
-        - image: circleci/ruby:2.6.2-browsers
+        - image: circleci/ruby:2.6.8-browsers
       steps:
         - checkout
         - run: git submodule update --init
         - run: sudo apt-get update
-        - run: sudo apt-get install g++ qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+        - run: sudo apt-get install gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
     # Restore bundle cache
         - type: cache-restore
           key: example-cucumber-{{ checksum "Gemfile.lock" }}

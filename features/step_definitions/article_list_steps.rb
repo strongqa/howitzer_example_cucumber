@@ -23,8 +23,8 @@ end
 
 Then /I should see new article parameters on (.+) page/ do |page|
   page.on do
-    expect(text).to include(out(:@new_article).title.upcase)
-    expect(text).to include(out(:@new_article).text)
+    expect(text).to include(out(:@article).title.upcase)
+    expect(text).to include(out(:@article).text)
   end
 end
 
@@ -38,22 +38,22 @@ Then /I should see articles parameters on (.+) page/ do |page|
 end
 
 Then /I should see article on search page/ do
-  SearchPage.on { is_expected.to have_article_element(out(:@article).title) }
+  SearchPage.on { is_expected.to have_article_element(lambda_args(name: out(:@article).title)) }
 end
 
 Then /I should see two articles on categories page/ do
   CategoriesPage.on do
-    is_expected.to have_article_element(out(:@article).title)
-    is_expected.to have_article_element(out(:@article2).title)
+    is_expected.to have_article_element(lambda_args(name: out(:@article).title))
+    is_expected.to have_article_element(lambda_args(name: out(:@article2).title))
   end
 end
 
 Then /I should see category of created articles in right sidebar on article list page/ do
-  ArticleListPage.on { is_expected.to have_category_item_element(out(:@category).name) }
+  ArticleListPage.on { is_expected.to have_category_item_element(lambda_args(name: out(:@category).name)) }
 end
 
 Then /I should see created article in recent post on article list page/ do
-  ArticleListPage.on { is_expected.to have_recent_post_element(out(:@article).title) }
+  ArticleListPage.on { is_expected.to have_recent_post_element(lambda_args(title: out(:@article).title)) }
 end
 
 Then /I click on article in recent post on article list page/ do

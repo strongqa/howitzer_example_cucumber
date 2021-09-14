@@ -23,7 +23,7 @@ Feature: Category maintaining
     Then I should be redirected to edit category page
     When I update name of category on edit category page
     Then I should be redirected to categories list page
-    And I should see created category on categories list page
+    And I should see updated category on categories list page
     When I delete category
     Then I should not see the category
 

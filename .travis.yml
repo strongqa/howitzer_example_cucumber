@@ -44,8 +44,6 @@ env:
     - SEXY_SETTINGS="driver=testingbot,cloud_auth_login=$TESTINGBOT_KEY,cloud_auth_pass=$TESTINGBOT_SECRET,$BASIC_SEXY_SETTINGS"
     - SEXY_SETTINGS="driver=browserstack,cloud_auth_login=$BROWSERSTACK_USER_NAME,cloud_auth_pass=$BROWSERSTACK_ACCESS_KEY,$BASIC_SEXY_SETTINGS"
     - SEXY_SETTINGS="driver=crossbrowsertesting,cloud_auth_login=$CROSSBROWSERTESTING_USER_NAME,cloud_auth_pass=$CROSSBROWSERTESTING_ACCESS_KEY,$BASIC_SEXY_SETTINGS"
-    # - secure: "hO4sR2WaRx8B6kkI3V9PtoxnaQlZu9ryoRDwO5MyZHZEjsSCatKKjeT0tYiJakiUGDmrOBD0pipzohw6Xmgc0AGMs1LnQJDNvBQS1my7n5uk/C0vM/Yzt599kfTYFnxapHPGxjqM4pnO9Z0Tc29hclFXcCfUf6WNUE6q6n54MddWU1bTfAONE/xOJtXcuKVnJKsRg1V3lvKlBWuiiCIX1WVoxiArFsU27/VPZqwk/7SJksTcNmzs3ayBtsqc00SF3PKJvbZF/vJ3VVA63ofZJejIUCDkyJzennJDE/oeEPtIgbMnK9BrBKeOO0Y0i+gGCERNitbjzv2mGZvCJro6rtJn+0OtqIkuRYb+JtS6Fw7mZqeANLLrEvexbCxnsOM/s7kIK5LIPD27HUJe9q5xBQjjTTDxwdD1gfX1OyrdC+kr/BRVRnpIIzQwwCceurOCrAavr16optJMF/+84te3Of+8HfsHzLFwkOz/C86Vx0Q+nDwhVGviGjjncXEc0loZ2iKcyl+ws4qL2iO+t9LCTZyjDTBsVYCtWNO6js/AuYRLsB8/a2BMvCdrzHi/+nVM735y092nCSF+/J4QP4JRJLJUSfu6h29BEVOndukFDqKlXdDmU32BxqtmDTcJHZYhekVIT8xEazvBWD6JTwuzA+6PZ08jhaqt1x/G2l0cU68="
-    # #SEXY_SETTINGS=driver=apium,appium_url=secret
     
 script: "./scripts/run-tests.sh"
 

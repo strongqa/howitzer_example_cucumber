@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/strongqa/howitzer.git
-  revision: dbbe7261d0abc2e757a06e6e6ac2dff7048c5e86
+  revision: 4d645528c5de7e924febdd66fe7bd174f8756e17
   branch: master
   specs:
     howitzer (2.2.0)
@@ -16,7 +16,6 @@ GIT
       capybara (< 4.0)
       colorize
       gli
-      gmail
       launchy
       log4r (~> 1.1.10)
       rake
@@ -129,11 +128,6 @@ GEM
       websocket-driver (>= 0.5.1)
     ffi (1.15.4)
     gli (2.20.1)
-    gmail (0.7.1)
-      gmail_xoauth (>= 0.3.0)
-      mail (>= 2.2.1)
-    gmail_xoauth (0.4.2)
-      oauth (>= 0.3.6)
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -142,8 +136,6 @@ GEM
     launchy (2.5.0)
       addressable (~> 2.7)
     log4r (1.1.10)
-    mail (2.7.1)
-      mini_mime (>= 0.1.1)
     method_source (1.0.0)
     middleware (0.1.0)
     mime-types (3.3.1)
@@ -159,7 +151,6 @@ GEM
     nokogiri (1.12.4)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    oauth (0.5.6)
     parallel (1.21.0)
     parser (3.0.2.0)
       ast (~> 2.4.1)

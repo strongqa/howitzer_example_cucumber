@@ -6,34 +6,17 @@ GIT
       capybara (>= 1.0, < 4)
       launchy
 
-GIT
-  remote: https://github.com/strongqa/howitzer.git
-  revision: 4d645528c5de7e924febdd66fe7bd174f8756e17
-  branch: master
-  specs:
-    howitzer (2.2.0)
-      activesupport (>= 5, < 7)
-      capybara (< 4.0)
-      colorize
-      gli
-      launchy
-      log4r (~> 1.1.10)
-      rake
-      rspec (~> 3.2)
-      rspec-wait
-      selenium-webdriver (>= 3.4.1, < 4.0)
-      sexy_settings
-
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (5.2.6)
-      activesupport (= 5.2.6)
-    activesupport (5.2.6)
+    activemodel (6.1.4.1)
+      activesupport (= 6.1.4.1)
+    activesupport (6.1.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
-      i18n (>= 0.7, < 2)
-      minitest (~> 5.1)
-      tzinfo (~> 1.1)
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      tzinfo (~> 2.0)
+      zeitwerk (~> 2.3)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     appium_capybara (1.10.0)
@@ -102,7 +85,7 @@ GEM
     eventmachine (1.2.7)
     factory_bot (6.2.0)
       activesupport (>= 5.0.0)
-    faraday (1.7.2)
+    faraday (1.8.0)
       faraday-em_http (~> 1.0)
       faraday-em_synchrony (~> 1.0)
       faraday-excon (~> 1.1)
@@ -128,6 +111,18 @@ GEM
       websocket-driver (>= 0.5.1)
     ffi (1.15.4)
     gli (2.20.1)
+    howitzer (2.3.0)
+      activesupport (>= 5, < 7)
+      capybara (< 4.0)
+      colorize
+      gli
+      launchy
+      log4r (~> 1.1.10)
+      rake
+      rspec (~> 3.2)
+      rspec-wait
+      selenium-webdriver (>= 3.4.1, < 4.0)
+      sexy_settings
     http-accept (1.7.0)
     http-cookie (1.0.4)
       domain_name (~> 0.5)
@@ -228,17 +223,18 @@ GEM
     thor (1.1.0)
     thread_safe (0.3.6)
     tomlrb (1.3.0)
-    tzinfo (1.2.9)
-      thread_safe (~> 0.1)
+    tzinfo (2.0.4)
+      concurrent-ruby (~> 1.0)
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.8)
-    unicode-display_width (2.0.0)
+    unicode-display_width (2.1.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
       nokogiri (~> 1.8)
+    zeitwerk (2.4.2)
 
 PLATFORMS
   ruby
@@ -249,7 +245,7 @@ DEPENDENCIES
   cucumber (>= 3, < 7)
   cuke_sniffer
   factory_bot
-  howitzer!
+  howitzer
   multi_json
   pry
   pry-byebug

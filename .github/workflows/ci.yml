@@ -63,7 +63,7 @@ jobs:
         with:
           repository: 'strongqa/howitzer'
           ref: ${{ github.event.inputs.ref }}
-          path: './howitzer_gem'
+          path: './tmp/howitzer_gem'
       - name: Install packages
         run: sudo apt-get install -y jq google-chrome-stable
       - name: Set up Ruby ${{ matrix.ruby-version }}
@@ -77,7 +77,7 @@ jobs:
           sed -i -e "s/.*howitzer.*/gem 'howitzer', git: 'https:\/\/github.com\/strongqa\/howitzer.git'/" Gemfile
           bundle config disable_local_branch_check true   
           bundle config unset deployment                       
-          bundle config local.howitzer ./howitzer_gem
+          bundle config local.howitzer ./tmp/howitzer_gem
       - name: Install dependencies
         run: bundle install
       - name: Run rubocop

@@ -3,6 +3,12 @@ name: Howitzer
 on:
   pull_request:
     branches: master 
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'The branch, tag or SHA to checkout'  
+        type: string   
+        required: false
 
 concurrency: 
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -51,6 +57,13 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: 'recursive'
+      - name: Checkout Howitzer by ref
+        uses: actions/checkout@v3
+        if: ${{ github.event.inputs.ref != '' }}
+        with:
+          repository: 'https://github.com/strongqa/howitzer.git'
+          ref: ${{ github.event.inputs.ref }}
+          path: './howitzer_gem'
       - name: Install packages
         run: sudo apt-get install -y jq google-chrome-stable
       - name: Set up Ruby ${{ matrix.ruby-version }}
@@ -60,6 +73,11 @@ jobs:
           bundler-cache: true
       - name: Install dependencies
         run: bundle install
+      - name: Configure bundle
+        if: ${{ github.event.inputs.ref != '' }}
+        run: |
+          bundle config local.howitzer ./howitzer_gem
+          bundle update howitzer
       - name: Run rubocop
         if: ${{ contains(matrix.driver, 'headless') }}
         run: bundle exec rake rubocop

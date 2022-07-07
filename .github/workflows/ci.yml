@@ -80,6 +80,9 @@ jobs:
           bundle config local.howitzer ./tmp/howitzer_gem
       - name: Install dependencies
         run: bundle install
+      - name: Bundle update 
+        if: ${{ github.event.inputs.ref != '' }}
+        run: bundle update  
       - name: Run rubocop
         if: ${{ contains(matrix.driver, 'headless') }}
         run: bundle exec rake rubocop

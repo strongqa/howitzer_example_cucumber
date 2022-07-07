@@ -71,13 +71,12 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby-version }}
           bundler-cache: true
-      - name: Install dependencies
-        run: bundle install
       - name: Configure bundle
         if: ${{ github.event.inputs.ref != '' }}
         run: |
           bundle config local.howitzer ./howitzer_gem
-          bundle update howitzer
+      - name: Install dependencies
+        run: bundle install
       - name: Run rubocop
         if: ${{ contains(matrix.driver, 'headless') }}
         run: bundle exec rake rubocop

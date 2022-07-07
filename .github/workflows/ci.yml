@@ -75,7 +75,8 @@ jobs:
         if: ${{ github.event.inputs.ref != '' }}
         run: |
           sed -i -e "s/.*howitzer.*/gem 'howitzer', git: 'https:\/\/github.com\/strongqa\/howitzer.git'/" Gemfile
-          bundle config disable_local_branch_check true                          
+          bundle config disable_local_branch_check true   
+          bundle config unset deployment                       
           bundle config local.howitzer ./howitzer_gem
       - name: Install dependencies
         run: bundle install

@@ -22,7 +22,6 @@ jobs:
       fail-fast: false
       matrix:
         ruby-version:
-          - 2.6.10 
           - 2.7.6
           - 3.0.4
           - 3.1.2
@@ -81,7 +80,7 @@ jobs:
         run: bundle install
       - name: Bundle update 
         if: ${{ github.event.inputs.ref != '' }}
-        run: bundle update  
+        run: bundle update howitzer
       - name: Run rubocop
         if: ${{ contains(matrix.driver, 'headless') }}
         run: bundle exec rake rubocop

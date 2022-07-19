@@ -8,7 +8,7 @@ on:
       ref:
         description: 'The branch, tag or SHA to checkout'  
         type: string   
-        required: true
+        required: false
 
 concurrency: 
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -56,13 +56,6 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: 'recursive'
-      - name: Checkout Howitzer by ref
-        uses: actions/checkout@v3
-        if: ${{ github.event.inputs.ref != '' }}
-        with:
-          repository: 'strongqa/howitzer'
-          ref: ${{ github.event.inputs.ref }}
-          path: './tmp/howitzer_gem'
       - name: Install packages
         run: sudo apt-get install -y jq google-chrome-stable
       - name: Set up Ruby ${{ matrix.ruby-version }}
@@ -72,15 +65,10 @@ jobs:
       - name: Configure bundle
         if: ${{ github.event.inputs.ref != '' }}
         run: |
-          sed -i -e "s/.*howitzer.*/gem 'howitzer', git: 'https:\/\/github.com\/strongqa\/howitzer.git'/" Gemfile
-          bundle config disable_local_branch_check true   
-          bundle config unset deployment                       
-          bundle config local.howitzer ./tmp/howitzer_gem
+          echo "BUNDLE_GEMFILE=Gemfile.github" >> $GITHUB_ENV
+          echo "HOWITZER_REF=${{github.event.inputs.ref}}" >> $GITHUB_ENV
       - name: Install dependencies
         run: bundle install
-      - name: Bundle update 
-        if: ${{ github.event.inputs.ref != '' }}
-        run: bundle update howitzer
       - name: Run rubocop
         if: ${{ contains(matrix.driver, 'headless') }}
         run: bundle exec rake rubocop

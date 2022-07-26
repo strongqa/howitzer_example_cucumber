@@ -9,6 +9,8 @@ jobs:
       steps:
         - checkout
         - run: git submodule update --init
+
+        - browser-tools/install-chrome
         - browser-tools/install-chromedriver
         
         # Restore bundle cache

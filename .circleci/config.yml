@@ -1,5 +1,6 @@
-version: 2
-
+version: '2.1'
+orbs:
+  browser-tools: circleci/browser-tools@1.4.0
 jobs:
     build:
       working_directory: ~/howitzer_example
@@ -8,6 +9,7 @@ jobs:
       steps:
         - checkout
         - run: git submodule update --init
+        - browser-tools/install-chromedriver
         
         # Restore bundle cache
         - restore_cache:

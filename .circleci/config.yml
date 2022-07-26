@@ -8,19 +8,23 @@ jobs:
       steps:
         - checkout
         - run: git submodule update --init
-        - run: sudo apt-get update
-        - run: sudo apt-get install gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
-    # Restore bundle cache
-        - type: cache-restore
-          key: example-cucumber-{{ checksum "Gemfile.lock" }}
+        
+        # Restore bundle cache
+        - restore_cache:
+            keys:
+              - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+              - v1-gem-cache-{{ arch }}-{{ .Branch }}-
+              - v1-gem-cache-{{ arch }}-
 
         # Bundle install dependencies
-        - run: gem install bundler:2.2.22
-        - run: bundle install --path vendor/bundle
+        - run: bundle install
+        - run: bundle clean --force
 
         # Store bundle cache
-        - type: cache-save
-          key: example-cucumber-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+        - save_cache:
+            paths:
+              - ~/.bundle
+            key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+
+        # Execute tests
         - run: bundle exec rake features:smoke

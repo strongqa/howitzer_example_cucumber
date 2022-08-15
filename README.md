@@ -1,7 +1,7 @@
 Howitzer Example Cucumber
 =======================
 
-[![Build Status](https://app.travis-ci.com/strongqa/howitzer_example_cucumber.svg?branch=master)](https://app.travis-ci.com/strongqa/howitzer_example_cucumber)
+[![GitHub](https://github.com/strongqa/howitzer_example_cucumber/actions/workflows/ci.yml/badge.svg)](https://github.com/strongqa/howitzer_example_cucumber/actions/workflows/ci.yml)
 [![CircleCI](https://circleci.com/gh/strongqa/howitzer_example_cucumber.svg?style=svg&circle-token=e46a95ce08f0f19b93aee140f842ae845f696f01)](https://circleci.com/gh/strongqa/howitzer_example_cucumber)
 
 Howitzer example project based on Cucumber for demo web application https://demoapp.strongqa.com

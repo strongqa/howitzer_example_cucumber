@@ -16,9 +16,9 @@ jobs:
         # Restore bundle cache
         - restore_cache:
             keys:
-              - v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
-              - v1-gem-cache-{{ arch }}-{{ .Branch }}-
-              - v1-gem-cache-{{ arch }}-
+              - example-cucumber-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+              - example-cucumber-{{ arch }}-{{ .Branch }}-
+              - example-cucumber-{{ arch }}-
 
         # Bundle install dependencies
         - run: bundle install
@@ -28,7 +28,7 @@ jobs:
         - save_cache:
             paths:
               - ~/.bundle
-            key: v1-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+            key: example-cucumber-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
 
         # Execute tests
         - run: bundle exec rake features:smoke

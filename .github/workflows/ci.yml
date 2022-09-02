@@ -30,7 +30,7 @@ jobs:
 #          - headless_firefox
         rake: 
 #          - features:bvt features:p1 features:p2
-          - features:bvt features:smoke
+          - features:smoke
 #        include:
 #          - driver: sauce
 #            ruby-version: 3.0.4

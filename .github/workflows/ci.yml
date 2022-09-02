@@ -1,8 +1,8 @@
 name: Howitzer test colored
 
 on:
-#  pull_request:
-#    branches: master
+  pull_request:
+    branches: github_actions
   workflow_dispatch:
     inputs:
       ref:

@@ -74,6 +74,6 @@ jobs:
         if: ${{ contains(matrix.driver, 'headless') }}
         run: bundle exec rake rubocop
       - name: Run tests
-        run: bundle exec rake ${{ matrix.rake }}
+        run: bundle exec rake ${{ matrix.rake }} EXTRA_RUN_OPTS='-c'
         env:
           SEXY_SETTINGS: "driver=${{ matrix.driver }},cloud_auth_login=${{ secrets[format('{0}_AUTH_LOGIN',matrix.cloud)] }},cloud_auth_pass=${{ secrets[format('{0}_AUTH_PASS',matrix.cloud)] }},testmail_api_key=${{ secrets.TESTMAIL_API_KEY }},testmail_namespace=${{ secrets.TESTMAIL_NAMESPACE }}"

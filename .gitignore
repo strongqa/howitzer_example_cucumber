@@ -20,3 +20,4 @@ sauce_connect.log*
 *.*~
 capybara-*.html
 .byebug_history
+.vscode

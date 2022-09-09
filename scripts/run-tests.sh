@@ -15,12 +15,6 @@ then
     export PATH=$PATH:$PWD/geckodriver
     sleep 3
 fi
-if [[ "$SEXY_SETTINGS" =~ .*appium.* ]]
-then
-    bundle exec cucumber features/functionality/about_blank.feature
-else
-    bundle exec rake rubocop features:smoke
-fi
 shopt -s nocasematch;
 if [[ "$SEXY_SETTINGS" == "" || "$SEXY_SETTINGS" =~ .*headless_chrome|headless_firefox.* ]]
 then

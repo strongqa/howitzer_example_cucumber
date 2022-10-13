@@ -46,7 +46,6 @@ rake -T
 ```
 docker build -t howitzer_example_cucumber .
 ```
-Driver which is used by default is **headless chrome**
 
 Use **docker run** command to create and run container.
 

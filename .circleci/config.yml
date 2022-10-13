@@ -1,26 +1,34 @@
-version: 2
-
+version: '2.1'
+orbs:
+  browser-tools: circleci/browser-tools@1.4.0
 jobs:
     build:
       working_directory: ~/howitzer_example
       docker:
-        - image: circleci/ruby:2.6.8-browsers
+        - image: cimg/ruby:3.0.4-browsers
       steps:
         - checkout
         - run: git submodule update --init
-        - run: sudo apt-get update
-        - run: sudo apt-get install gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
-    # Restore bundle cache
-        - type: cache-restore
-          key: example-cucumber-{{ checksum "Gemfile.lock" }}
+
+        - browser-tools/install-chrome
+        - browser-tools/install-chromedriver
+
+        # Restore bundle cache
+        - restore_cache:
+            keys:
+              - example-cucumber-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+              - example-cucumber-{{ arch }}-{{ .Branch }}-
+              - example-cucumber-{{ arch }}-
 
         # Bundle install dependencies
-        - run: gem install bundler:2.2.22
-        - run: bundle install --path vendor/bundle
+        - run: bundle install
+        - run: bundle clean --force
 
         # Store bundle cache
-        - type: cache-save
-          key: example-cucumber-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+        - save_cache:
+            paths:
+              - ~/.bundle
+            key: example-cucumber-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+
+        # Execute tests
         - run: bundle exec rake features:smoke
